@@ -1,0 +1,13 @@
+Struktura katalogów do zapisu plików
+Magazyn 
+-> Faktury
+-> Gwarancje
+-> Wycofania
+-> Zdjecia
+Narzedzia
+-> Faktury
+-> Gwarancje
+-> Wycofania
+-> Zdjecia
+Pracownicy
+-> Dokumenty

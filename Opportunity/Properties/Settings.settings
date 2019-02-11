@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Opportunity.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ftp_path" Type="System.String" Scope="User">
+      <Value Profile="(Default)">test</Value>
+    </Setting>
+    <Setting Name="ftp_user" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ftp_password" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="domyslny_typ_towaru" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="datasource" Type="System.String" Scope="User">
+      <Value Profile="(Default)">192.168.0.20,3878</Value>
+    </Setting>
+    <Setting Name="media_path" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\xampp\htdocs\work\</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

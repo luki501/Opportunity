@@ -1,0 +1,376 @@
+2019-01-22 19:22:52,686 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-22 20:01:42,532 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-22 20:01:49,042 [1] ERROR LogFileAppender DanePoczatkowe 321 - System.ArgumentNullException: Wartoœæ nie mo¿e byæ zerowa.
+Nazwa parametru: source
+   w System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   w Opportunity.ViewModel.MainViewModel.DanePoczatkowe() w C:\Users\lukas\source\repos\Opportunity\Opportunity\ViewModel\MainViewModel.cs:wiersz 306
+2019-01-26 10:27:18,531 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 10:29:16,363 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 10:31:29,322 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 10:37:57,941 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 10:38:09,733 [1] ERROR LogFileAppender DanePoczatkowe 326 - System.ArgumentNullException: Wartoœæ nie mo¿e byæ zerowa.
+Nazwa parametru: source
+   w System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   w Opportunity.ViewModel.MainViewModel.DanePoczatkowe() w C:\Users\lukas\source\repos\Opportunity\Opportunity\ViewModel\MainViewModel.cs:wiersz 311
+2019-01-26 10:38:23,773 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 10:38:35,889 [1] ERROR LogFileAppender DanePoczatkowe 326 - System.ArgumentNullException: Wartoœæ nie mo¿e byæ zerowa.
+Nazwa parametru: source
+   w System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   w Opportunity.ViewModel.MainViewModel.DanePoczatkowe() w C:\Users\lukas\source\repos\Opportunity\Opportunity\ViewModel\MainViewModel.cs:wiersz 311
+2019-01-26 10:38:39,593 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 10:39:08,142 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 10:40:02,906 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 10:45:28,928 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 10:50:49,714 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 11:04:46,147 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 11:35:04,855 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 11:54:40,577 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 11:56:29,875 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 15:29:10,807 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 15:30:48,610 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 15:31:10,486 [1] ERROR LogFileAppender ZapiszPlikFtp 28 - System.IO.IOException: Proces nie mo¿e uzyskaæ dostêpu do pliku „media/Narzedzia/Zdjecia/2018-06-23.png”, poniewa¿ jest on u¿ywany przez inny proces.
+   w System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   w System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   w System.IO.File.Copy(String sourceFileName, String destFileName, Boolean overwrite)
+   w Opportunity.Model.Tools.ZapiszPlikFtp(String fileName, String ftpPath, String user, String password) w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Tools.cs:wiersz 24
+2019-01-26 15:34:14,409 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 15:34:45,347 [1] ERROR LogFileAppender ZapiszPlikFtp 28 - System.IO.IOException: Proces nie mo¿e uzyskaæ dostêpu do pliku „media/Narzedzia/Zdjecia/2018-06-23.png”, poniewa¿ jest on u¿ywany przez inny proces.
+   w System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   w System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   w System.IO.File.Copy(String sourceFileName, String destFileName, Boolean overwrite)
+   w Opportunity.Model.Tools.ZapiszPlikFtp(String fileName, String ftpPath, String user, String password) w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Tools.cs:wiersz 24
+2019-01-26 15:47:57,601 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 15:51:02,213 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 15:54:10,662 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 16:34:03,704 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 16:39:40,122 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 16:44:58,701 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 16:49:07,426 [1] ERROR LogFileAppender FtpCreateFolder 0 - System.NullReferenceException: Odwo³anie do obiektu nie zosta³o ustawione na wyst¹pienie obiektu.
+   w Opportunity.Model.Tools.FtpCreateFolder(String ftpAddress, String ftpUName, String ftpPWord, String katalog)
+2019-01-26 16:49:25,678 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 16:52:34,392 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 16:59:26,109 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 17:02:16,783 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 17:03:01,760 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 17:03:54,836 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 17:04:48,217 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 17:05:59,476 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 17:13:49,993 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 17:14:08,336 [1] ERROR LogFileAppender PracownikInsert 157 - System.NullReferenceException: Odwo³anie do obiektu nie zosta³o ustawione na wyst¹pienie obiektu.
+   w Opportunity.Model.Database.DbAdapterEF.<>c__DisplayClass14_0.<PracownikInsert>b__0(Pracownicy pr) w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Database\DbAdapterEF.cs:wiersz 147
+   w System.Linq.Enumerable.Any[TSource](IEnumerable`1 source, Func`2 predicate)
+   w Opportunity.Model.Database.DbAdapterEF.PracownikInsert(Pracownik p) w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Database\DbAdapterEF.cs:wiersz 147
+2019-01-26 17:14:08,378 [1] ERROR LogFileAppender Save 77 - System.NullReferenceException: Odwo³anie do obiektu nie zosta³o ustawione na wyst¹pienie obiektu.
+   w Opportunity.Model.Database.DbAdapterEF.PracownikInsert(Pracownik p) w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Database\DbAdapterEF.cs:wiersz 157
+   w Opportunity.Model.Obiekty.Pracownik.Save() w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Obiekty\Pracownik.cs:wiersz 73
+2019-01-26 17:14:08,402 [1] ERROR LogFileAppender ZapiszPracownika 102 - System.NullReferenceException: Odwo³anie do obiektu nie zosta³o ustawione na wyst¹pienie obiektu.
+   w Opportunity.Model.Obiekty.Pracownik.Save() w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Obiekty\Pracownik.cs:wiersz 77
+   w Opportunity.ViewModel.PracownikEdycjaVM.ZapiszPracownika() w C:\Users\lukas\source\repos\Opportunity\Opportunity\ViewModel\PracownikEdycjaVM.cs:wiersz 96
+2019-01-26 17:15:06,859 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 17:15:51,928 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 17:16:21,284 [1] ERROR LogFileAppender PracownikInsert 157 - System.Exception: Podany numer jest zajêty
+   w Opportunity.Model.Database.DbAdapterEF.PracownikInsert(Pracownik p) w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Database\DbAdapterEF.cs:wiersz 150
+2019-01-26 17:16:21,318 [1] ERROR LogFileAppender Save 77 - System.Exception: Podany numer jest zajêty
+   w Opportunity.Model.Database.DbAdapterEF.PracownikInsert(Pracownik p) w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Database\DbAdapterEF.cs:wiersz 157
+   w Opportunity.Model.Obiekty.Pracownik.Save() w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Obiekty\Pracownik.cs:wiersz 73
+2019-01-26 17:16:21,343 [1] ERROR LogFileAppender ZapiszPracownika 102 - System.Exception: Podany numer jest zajêty
+   w Opportunity.Model.Obiekty.Pracownik.Save() w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Obiekty\Pracownik.cs:wiersz 77
+   w Opportunity.ViewModel.PracownikEdycjaVM.ZapiszPracownika() w C:\Users\lukas\source\repos\Opportunity\Opportunity\ViewModel\PracownikEdycjaVM.cs:wiersz 96
+2019-01-26 17:17:22,721 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 17:17:52,285 [1] ERROR LogFileAppender PracownikInsert 157 - System.Exception: Podany numer jest zajêty
+   w Opportunity.Model.Database.DbAdapterEF.PracownikInsert(Pracownik p) w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Database\DbAdapterEF.cs:wiersz 150
+2019-01-26 17:17:59,568 [1] ERROR LogFileAppender Save 77 - System.Exception: Podany numer jest zajêty
+   w Opportunity.Model.Database.DbAdapterEF.PracownikInsert(Pracownik p) w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Database\DbAdapterEF.cs:wiersz 157
+   w Opportunity.Model.Obiekty.Pracownik.Save() w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Obiekty\Pracownik.cs:wiersz 73
+2019-01-26 17:18:03,814 [1] ERROR LogFileAppender ZapiszPracownika 102 - System.Exception: Podany numer jest zajêty
+   w Opportunity.Model.Obiekty.Pracownik.Save() w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Obiekty\Pracownik.cs:wiersz 77
+   w Opportunity.ViewModel.PracownikEdycjaVM.ZapiszPracownika() w C:\Users\lukas\source\repos\Opportunity\Opportunity\ViewModel\PracownikEdycjaVM.cs:wiersz 96
+2019-01-26 17:19:19,101 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 17:19:32,785 [1] ERROR LogFileAppender PracownikInsert 157 - System.Exception: Podany numer jest zajêty
+   w Opportunity.Model.Database.DbAdapterEF.PracownikInsert(Pracownik p) w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Database\DbAdapterEF.cs:wiersz 150
+2019-01-26 17:19:32,819 [1] ERROR LogFileAppender Save 77 - System.Exception: Podany numer jest zajêty
+   w Opportunity.Model.Database.DbAdapterEF.PracownikInsert(Pracownik p) w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Database\DbAdapterEF.cs:wiersz 157
+   w Opportunity.Model.Obiekty.Pracownik.Save() w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Obiekty\Pracownik.cs:wiersz 73
+2019-01-26 17:19:32,843 [1] ERROR LogFileAppender ZapiszPracownika 102 - System.Exception: Podany numer jest zajêty
+   w Opportunity.Model.Obiekty.Pracownik.Save() w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Obiekty\Pracownik.cs:wiersz 77
+   w Opportunity.ViewModel.PracownikEdycjaVM.ZapiszPracownika() w C:\Users\lukas\source\repos\Opportunity\Opportunity\ViewModel\PracownikEdycjaVM.cs:wiersz 96
+2019-01-26 17:20:11,940 [1] ERROR LogFileAppender PracownikInsert 157 - System.Exception: Podany numer jest zajêty
+   w Opportunity.Model.Database.DbAdapterEF.PracownikInsert(Pracownik p) w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Database\DbAdapterEF.cs:wiersz 150
+2019-01-26 17:20:11,966 [1] ERROR LogFileAppender Save 77 - System.Exception: Podany numer jest zajêty
+   w Opportunity.Model.Database.DbAdapterEF.PracownikInsert(Pracownik p) w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Database\DbAdapterEF.cs:wiersz 157
+   w Opportunity.Model.Obiekty.Pracownik.Save() w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Obiekty\Pracownik.cs:wiersz 73
+2019-01-26 17:20:11,991 [1] ERROR LogFileAppender ZapiszPracownika 102 - System.Exception: Podany numer jest zajêty
+   w Opportunity.Model.Obiekty.Pracownik.Save() w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Obiekty\Pracownik.cs:wiersz 77
+   w Opportunity.ViewModel.PracownikEdycjaVM.ZapiszPracownika() w C:\Users\lukas\source\repos\Opportunity\Opportunity\ViewModel\PracownikEdycjaVM.cs:wiersz 96
+2019-01-26 17:24:02,784 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 17:30:20,713 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 17:32:36,804 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 17:35:23,359 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 17:36:38,495 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-26 17:41:31,363 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-27 21:02:10,925 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-27 21:02:18,166 [1] ERROR LogFileAppender DanePoczatkowe 325 - System.NullReferenceException: Odwo³anie do obiektu nie zosta³o ustawione na wyst¹pienie obiektu.
+   w Opportunity.ViewModel.MainViewModel.DanePoczatkowe() w C:\Users\lukas\source\repos\Opportunity\Opportunity\ViewModel\MainViewModel.cs:wiersz 308
+2019-01-27 21:02:30,094 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-27 21:04:01,411 [1] ERROR LogFileAppender DanePoczatkowe 0 - System.NullReferenceException: Odwo³anie do obiektu nie zosta³o ustawione na wyst¹pienie obiektu.
+   w Opportunity.ViewModel.MainViewModel.DanePoczatkowe()
+2019-01-27 21:04:06,096 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-27 21:28:40,335 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-27 21:30:48,902 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-27 21:31:37,883 [1] ERROR LogFileAppender FtpCreateFolder 60 - System.Net.WebException: Serwer zdalny zwróci³ b³¹d: (550) Plik niedostêpny (np. nie znaleziono pliku, brak dostêpu).
+   w System.Net.FtpWebRequest.SyncRequestCallback(Object obj)
+   w System.Net.FtpWebRequest.RequestCallback(Object obj)
+   w System.Net.CommandStream.Dispose(Boolean disposing)
+   w System.IO.Stream.Close()
+   w System.IO.Stream.Dispose()
+   w System.Net.ConnectionPool.Destroy(PooledStream pooledStream)
+   w System.Net.ConnectionPool.PutConnection(PooledStream pooledStream, Object owningObject, Int32 creationTimeout, Boolean canReuse)
+   w System.Net.FtpWebRequest.FinishRequestStage(RequestStage stage)
+   w System.Net.FtpWebRequest.GetResponse()
+   w Opportunity.Model.Tools.FtpCreateFolder(String ftpAddress, String ftpUName, String ftpPWord, String katalog) w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Tools.cs:wiersz 45
+2019-01-27 21:32:05,062 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-27 21:40:35,935 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-27 21:47:32,353 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-27 21:48:33,310 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-27 21:49:39,325 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-27 21:55:09,569 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-27 21:56:42,436 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-27 21:57:13,257 [1] INFO  LogFileAppender .ctor 200 - START
+2019-01-27 21:57:37,560 [1] INFO  LogFileAppender .ctor 202 - START
+2019-01-27 21:58:11,510 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-27 21:59:24,080 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-27 21:59:36,121 [1] ERROR LogFileAppender DanePoczatkowe 325 - System.NullReferenceException: Odwo³anie do obiektu nie zosta³o ustawione na wyst¹pienie obiektu.
+   w Opportunity.ViewModel.MainViewModel.DanePoczatkowe() w C:\Users\lukas\source\repos\Opportunity\Opportunity\ViewModel\MainViewModel.cs:wiersz 308
+2019-01-27 21:59:46,064 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-27 22:01:03,757 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-27 22:02:18,231 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-27 22:05:51,697 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-27 22:08:20,124 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-27 22:08:49,081 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-27 22:37:49,648 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-27 22:41:34,004 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 17:53:00,444 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 18:02:00,027 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 18:13:28,067 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 18:18:48,281 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 18:25:49,843 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 18:26:51,124 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 18:28:53,739 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 18:50:20,224 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 18:51:00,680 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 18:53:10,545 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 18:56:03,095 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 18:56:23,640 [1] ERROR LogFileAppender PracownikInsert 157 - System.Exception: Podany numer jest zajêty
+   w Opportunity.Model.Database.DbAdapterEF.PracownikInsert(Pracownik p) w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Database\DbAdapterEF.cs:wiersz 150
+2019-01-28 18:56:23,673 [1] ERROR LogFileAppender Save 77 - System.Exception: Podany numer jest zajêty
+   w Opportunity.Model.Database.DbAdapterEF.PracownikInsert(Pracownik p) w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Database\DbAdapterEF.cs:wiersz 157
+   w Opportunity.Model.Obiekty.Pracownik.Save() w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Obiekty\Pracownik.cs:wiersz 73
+2019-01-28 18:56:23,697 [1] ERROR LogFileAppender ZapiszPracownika 102 - System.Exception: Podany numer jest zajêty
+   w Opportunity.Model.Obiekty.Pracownik.Save() w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Obiekty\Pracownik.cs:wiersz 77
+   w Opportunity.ViewModel.PracownikEdycjaVM.ZapiszPracownika() w C:\Users\lukas\source\repos\Opportunity\Opportunity\ViewModel\PracownikEdycjaVM.cs:wiersz 96
+2019-01-28 18:56:49,331 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 18:57:06,525 [1] ERROR LogFileAppender PracownikInsert 157 - System.Exception: Podany numer jest zajêty
+   w Opportunity.Model.Database.DbAdapterEF.PracownikInsert(Pracownik p) w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Database\DbAdapterEF.cs:wiersz 150
+2019-01-28 18:57:06,555 [1] ERROR LogFileAppender Save 77 - System.Exception: Podany numer jest zajêty
+   w Opportunity.Model.Database.DbAdapterEF.PracownikInsert(Pracownik p) w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Database\DbAdapterEF.cs:wiersz 157
+   w Opportunity.Model.Obiekty.Pracownik.Save() w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Obiekty\Pracownik.cs:wiersz 73
+2019-01-28 18:57:06,580 [1] ERROR LogFileAppender ZapiszPracownika 102 - System.Exception: Podany numer jest zajêty
+   w Opportunity.Model.Obiekty.Pracownik.Save() w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Obiekty\Pracownik.cs:wiersz 77
+   w Opportunity.ViewModel.PracownikEdycjaVM.ZapiszPracownika() w C:\Users\lukas\source\repos\Opportunity\Opportunity\ViewModel\PracownikEdycjaVM.cs:wiersz 96
+2019-01-28 19:01:10,896 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 19:03:18,964 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 19:04:01,817 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 19:04:50,324 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 19:06:08,364 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 19:08:19,216 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 19:08:51,712 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 19:14:52,655 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 19:16:16,318 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 19:17:44,995 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 19:23:51,002 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 19:25:44,022 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 19:26:31,193 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 19:27:18,560 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 19:30:59,164 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 19:33:02,834 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 19:33:49,264 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 19:36:17,094 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 19:36:54,900 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 19:38:11,962 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 19:40:42,472 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 19:41:26,954 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 19:41:51,037 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 19:42:37,871 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 19:43:32,111 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 19:44:44,997 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 19:45:34,218 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 19:46:25,670 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 19:47:40,334 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 19:48:10,657 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 19:49:49,626 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 19:50:30,026 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 19:55:32,997 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 20:06:13,987 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-28 20:06:47,982 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 18:07:09,062 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 18:10:22,371 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 18:21:37,605 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 18:22:18,176 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 18:25:22,915 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 18:26:29,049 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 18:27:13,565 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 18:30:28,668 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 18:31:19,194 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 18:32:32,769 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 18:33:15,642 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 18:34:05,539 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 18:36:02,837 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 18:38:25,381 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 18:41:12,524 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 18:42:24,134 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 18:43:25,908 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 18:44:03,662 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 18:44:43,573 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 18:45:12,860 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 18:45:47,925 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 18:46:53,583 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 18:47:59,708 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 18:51:08,894 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 18:51:56,444 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 18:53:51,237 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 18:54:30,638 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 18:58:59,962 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 19:00:17,385 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 19:01:12,080 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 19:01:58,690 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 19:02:41,190 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 19:22:03,021 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 19:25:22,715 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 19:33:05,914 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 19:37:21,577 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-29 19:55:08,652 [1] INFO  LogFileAppender .ctor 203 - START
+2019-01-30 20:00:41,129 [1] INFO  LogFileAppender .ctor 203 - START
+2019-02-01 14:50:24,014 [1] INFO  LogFileAppender .ctor 203 - START
+2019-02-01 15:02:10,930 [1] INFO  LogFileAppender .ctor 203 - START
+2019-02-01 15:22:59,597 [1] INFO  LogFileAppender .ctor 203 - START
+2019-02-01 15:25:04,730 [1] INFO  LogFileAppender .ctor 203 - START
+2019-02-01 15:27:14,764 [1] INFO  LogFileAppender .ctor 203 - START
+2019-02-01 15:28:22,725 [1] INFO  LogFileAppender .ctor 203 - START
+2019-02-01 15:29:27,222 [1] INFO  LogFileAppender .ctor 203 - START
+2019-02-01 15:30:51,347 [1] INFO  LogFileAppender .ctor 203 - START
+2019-02-01 15:59:00,487 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-01 16:01:15,575 [1] ERROR LogFileAppender DodajMarkeTowaru 570 - System.NullReferenceException: Odwo³anie do obiektu nie zosta³o ustawione na wyst¹pienie obiektu.
+   w Opportunity.ViewModel.MainViewModel.DodajMarkeTowaru() w C:\Users\lukas\source\repos\Opportunity\Opportunity\ViewModel\MainViewModel.cs:wiersz 567
+2019-02-01 16:16:37,559 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-01 16:17:00,341 [1] ERROR LogFileAppender ZapiszNowaMarkeTowaru 240 - System.NullReferenceException: Odwo³anie do obiektu nie zosta³o ustawione na wyst¹pienie obiektu.
+   w Opportunity.Model.Obiekty.Towar.ZapiszNowaMarkeTowaru(String nazwa) w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Obiekty\Towar.cs:wiersz 236
+2019-02-01 16:17:04,007 [1] ERROR LogFileAppender DodajMarkeTowaru 571 - System.NullReferenceException: Odwo³anie do obiektu nie zosta³o ustawione na wyst¹pienie obiektu.
+   w Opportunity.Model.Obiekty.Towar.ZapiszNowaMarkeTowaru(String nazwa) w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Obiekty\Towar.cs:wiersz 240
+   w Opportunity.ViewModel.MainViewModel.DodajMarkeTowaru() w C:\Users\lukas\source\repos\Opportunity\Opportunity\ViewModel\MainViewModel.cs:wiersz 568
+2019-02-01 16:18:22,848 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-01 16:22:37,426 [1] ERROR LogFileAppender ZapiszNowaMarkeTowaru 240 - System.NullReferenceException: Odwo³anie do obiektu nie zosta³o ustawione na wyst¹pienie obiektu.
+   w Opportunity.Model.Obiekty.Towar.ZapiszNowaMarkeTowaru(String nazwa) w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Obiekty\Towar.cs:wiersz 236
+2019-02-01 16:22:38,896 [1] ERROR LogFileAppender DodajMarkeTowaru 573 - System.NullReferenceException: Odwo³anie do obiektu nie zosta³o ustawione na wyst¹pienie obiektu.
+   w Opportunity.Model.Obiekty.Towar.ZapiszNowaMarkeTowaru(String nazwa) w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Obiekty\Towar.cs:wiersz 240
+   w Opportunity.ViewModel.MainViewModel.DodajMarkeTowaru() w C:\Users\lukas\source\repos\Opportunity\Opportunity\ViewModel\MainViewModel.cs:wiersz 570
+2019-02-01 16:24:09,666 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-01 16:25:35,637 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-01 18:50:45,767 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-01 18:55:13,034 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-01 18:56:40,015 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-01 18:59:38,066 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-01 18:59:47,582 [1] ERROR LogFileAppender GetNazwaGrupyTowarow 624 - System.InvalidOperationException: Sekwencja nie zawiera elementów.
+   w System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   w System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__0[TResult](IEnumerable`1 sequence)
+   w System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   w System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   w System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   w System.Linq.Queryable.First[TSource](IQueryable`1 source)
+   w Opportunity.Model.Database.DbAdapterEF.GetNazwaGrupyTowarow(Nullable`1 idGrupy) w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Database\DbAdapterEF.cs:wiersz 618
+2019-02-01 19:00:41,323 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-01 19:03:04,829 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-01 19:05:49,481 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-01 19:06:24,322 [1] ERROR LogFileAppender GetIdGrupyTowarow 655 - System.InvalidOperationException: Sekwencja nie zawiera elementów.
+   w System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   w System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__0[TResult](IEnumerable`1 sequence)
+   w System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   w System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   w System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   w System.Linq.Queryable.First[TSource](IQueryable`1 source)
+   w Opportunity.Model.Database.DbAdapterEF.GetIdGrupyTowarow(String nazwa) w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Database\DbAdapterEF.cs:wiersz 649
+2019-02-01 19:06:24,349 [1] ERROR LogFileAppender GetIdMarkiTowaru 266 - System.InvalidOperationException: Sekwencja nie zawiera elementów.
+   w Opportunity.Model.Database.DbAdapterEF.GetIdGrupyTowarow(String nazwa) w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Database\DbAdapterEF.cs:wiersz 655
+   w Opportunity.Model.Obiekty.Towar.GetIdMarkiTowaru(String nazwa) w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Obiekty\Towar.cs:wiersz 264
+2019-02-01 19:06:25,758 [1] ERROR LogFileAppender GetMarka 261 - System.InvalidOperationException: Sekwencja nie zawiera elementów.
+   w Opportunity.Model.Obiekty.Towar.GetIdMarkiTowaru(String nazwa) w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Obiekty\Towar.cs:wiersz 266
+   w Opportunity.ViewModel.Obiekty.TowarVM.GetMarka(String nazwa) w C:\Users\lukas\source\repos\Opportunity\Opportunity\ViewModel\Obiekty\TowarVM.cs:wiersz 259
+2019-02-01 19:06:40,090 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-01 19:32:39,682 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-01 19:33:39,642 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-01 19:36:22,669 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-01 19:38:54,380 [1] ERROR LogFileAppender GetNazwaMarkiTowaru 0 - System.Threading.ThreadAbortException: Trwa³o przerywanie w¹tku.
+   w System.Diagnostics.Debugger.CustomNotification(ICustomDebuggerNotification data)
+   w System.Diagnostics.Debugger.NotifyOfCrossThreadDependencySlow()
+   w System.Diagnostics.Debugger.NotifyOfCrossThreadDependency()
+   w System.Data.Entity.Internal.InternalContext.Initialize()
+   w System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   w System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   w System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   w System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   w System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)
+   w Opportunity.Model.Database.DbAdapterEF.GetNazwaMarkiTowaru(Nullable`1 idMarki)
+2019-02-01 19:38:54,441 [1] ERROR LogFileAppender GetNazwaGrupyTowarow 0 - System.Threading.ThreadAbortException: Trwa³o przerywanie w¹tku.
+   w System.Diagnostics.Debugger.CustomNotification(ICustomDebuggerNotification data)
+   w System.Diagnostics.Debugger.NotifyOfCrossThreadDependencySlow()
+   w System.Diagnostics.Debugger.NotifyOfCrossThreadDependency()
+   w System.Data.Entity.Internal.InternalContext.Initialize()
+   w System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   w System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   w System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   w System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   w System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)
+   w Opportunity.Model.Database.DbAdapterEF.GetNazwaGrupyTowarow(Nullable`1 idGrupy)
+2019-02-01 19:39:45,761 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-01 19:42:44,407 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-01 19:51:16,240 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-01 19:51:49,166 [1] ERROR LogFileAppender ZapiszNowaMarkeTowaru 242 - System.NullReferenceException: Odwo³anie do obiektu nie zosta³o ustawione na wyst¹pienie obiektu.
+   w Opportunity.Model.Obiekty.Towar.ZapiszNowaMarkeTowaru(String nazwa) w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Obiekty\Towar.cs:wiersz 238
+2019-02-01 19:51:52,253 [1] ERROR LogFileAppender DodajMarkeTowaru 573 - System.NullReferenceException: Odwo³anie do obiektu nie zosta³o ustawione na wyst¹pienie obiektu.
+   w Opportunity.Model.Obiekty.Towar.ZapiszNowaMarkeTowaru(String nazwa) w C:\Users\lukas\source\repos\Opportunity\Opportunity\Model\Obiekty\Towar.cs:wiersz 242
+   w Opportunity.ViewModel.MainViewModel.DodajMarkeTowaru() w C:\Users\lukas\source\repos\Opportunity\Opportunity\ViewModel\MainViewModel.cs:wiersz 570
+2019-02-01 19:53:01,847 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-01 19:54:08,456 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-01 19:54:22,484 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-01 19:55:58,163 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-01 19:56:34,573 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-03 11:52:12,812 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-03 11:58:36,558 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-03 12:03:40,604 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-03 12:30:03,001 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-03 12:32:31,670 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-03 12:34:21,423 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-03 12:35:57,195 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-03 12:37:44,128 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-03 12:39:44,541 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-03 12:43:43,377 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-03 12:45:58,918 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-03 12:52:03,740 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-03 12:53:14,363 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-03 12:55:14,161 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-03 13:18:07,068 [1] INFO  LogFileAppender .ctor 213 - START
+2019-02-03 13:33:42,799 [1] INFO  LogFileAppender .ctor 215 - START
+2019-02-03 13:34:39,019 [1] INFO  LogFileAppender .ctor 215 - START
+2019-02-03 13:39:39,500 [1] INFO  LogFileAppender .ctor 215 - START
+2019-02-03 13:40:35,936 [1] INFO  LogFileAppender .ctor 215 - START
+2019-02-03 13:41:09,154 [1] INFO  LogFileAppender .ctor 215 - START
+2019-02-03 13:43:19,177 [1] INFO  LogFileAppender .ctor 215 - START
+2019-02-07 21:12:11,405 [1] INFO  LogFileAppender .ctor 215 - START
+2019-02-07 21:13:50,310 [1] INFO  LogFileAppender .ctor 215 - START
+2019-02-07 21:14:51,418 [1] INFO  LogFileAppender .ctor 215 - START
+2019-02-07 21:18:43,571 [1] INFO  LogFileAppender .ctor 215 - START
+2019-02-07 21:19:40,933 [1] INFO  LogFileAppender .ctor 215 - START
+2019-02-07 21:23:50,412 [1] INFO  LogFileAppender .ctor 215 - START
+2019-02-07 21:35:24,384 [1] INFO  LogFileAppender .ctor 215 - START
+2019-02-07 21:38:23,239 [1] INFO  LogFileAppender .ctor 215 - START
+2019-02-07 21:41:48,608 [1] INFO  LogFileAppender .ctor 215 - START
+2019-02-07 21:45:41,450 [1] INFO  LogFileAppender .ctor 215 - START

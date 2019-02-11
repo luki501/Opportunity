@@ -1,0 +1,1260 @@
+﻿<Window x:Class="Opportunity.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:Opportunity.View"
+        mc:Ignorable="d"
+        xmlns:ie="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactions"
+        DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
+        Title="Opportunity" Height="800" Width="1280" x:Name="thisWindow">
+    <Window.Resources>
+        <CollectionViewSource x:Key="listaBrygadzistow" Source="{Binding ListaBrygadzistow}" />
+        <local:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <local:BoolOppositeToVisibilityConverter x:Key="BoolOppositeToVisibilityConverter" />
+        <local:MultiBindingConverter x:Key="MultiBindingConverter" />
+        <Style x:Key="dgNormal" TargetType="DataGrid">
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="AutoGenerateColumns" Value="False" />
+            <Setter Property="CanUserAddRows" Value="False" />
+            <Setter Property="RowHeaderWidth" Value="0" />
+            <Setter Property="IsReadOnly" Value="True" />
+            <Setter Property="HorizontalGridLinesBrush" Value="LightGray" />
+            <Setter Property="VerticalGridLinesBrush" Value="LightGray" />
+        </Style>
+        <Style x:Key="tiDuzaCzcionka" TargetType="TabItem">
+            <Setter Property="FontSize" Value="20" />
+        </Style>
+        <Style x:Key="tbLarge" TargetType="TextBox">
+            <Setter Property="MinWidth" Value="150" />
+            <Setter Property="MaxWidth" Value="250" />
+            <Setter Property="Height" Value="24" />
+            <Setter Property="Margin" Value="3" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+        <Style x:Key="tbNormal" TargetType="TextBox">
+            <Setter Property="MinWidth" Value="100" />
+            <Setter Property="Height" Value="20" />
+            <Setter Property="Margin" Value="3" />
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+        <Style x:Key="tbSmall" TargetType="TextBox">
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="16" />
+            <Setter Property="Margin" Value="3" />
+            <Setter Property="FontSize" Value="10" />
+        </Style>
+        <Style x:Key="txtButtonNormal" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="2" />
+        </Style>
+        <Style x:Key="txtButtonSmall" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="10" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="2" />
+        </Style>
+        <Style x:Key="txtNormal" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="3" />
+        </Style>
+        <Style x:Key="txtSmall" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="10" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="3" />
+        </Style>
+        <Style x:Key="txtNormalBold" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Margin" Value="3" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+        <Style x:Key="txtHeaderNormal" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+        <Style x:Key="btnNormal" TargetType="Button">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="MinWidth" Value="80" />
+            <Setter Property="MaxWidth" Value="150" />
+            <Setter Property="Height" Value="32" />
+            <Setter Property="Background" Value="#cebbad" />
+        </Style>
+        <Style x:Key="btnSmall" TargetType="Button">
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="Margin" Value="3" />
+            <Setter Property="Height" Value="24" />
+            <Setter Property="Background" Value="#cebbad" />
+            <Setter Property="MaxWidth" Value="100" />
+        </Style>
+        <Style x:Key="btnVerySmall" TargetType="Button">
+            <Setter Property="FontSize" Value="10" />
+            <Setter Property="Margin" Value="2" />
+            <Setter Property="Height" Value="20" />
+            <Setter Property="Background" Value="#cebbad" />
+            <Setter Property="MaxWidth" Value="100" />
+        </Style>
+        <Style x:Key="tbtnSmall" TargetType="ToggleButton">
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="Margin" Value="3" />
+            <Setter Property="Background" Value="#cebbad" />
+        </Style>
+        <Style x:Key="imgButtonBig" TargetType="Image">
+            <Setter Property="MaxWidth" Value="27" />
+            <Setter Property="MaxHeight" Value="27" />
+            <Setter Property="Margin" Value="3" />
+        </Style>
+        <Style x:Key="imgButtonNormal" TargetType="Image">
+            <Setter Property="Width" Value="20" />
+            <Setter Property="Height" Value="20" />
+            <Setter Property="Margin" Value="3" />
+        </Style>
+        <Style x:Key="imgButtonSmall" TargetType="Image">
+            <Setter Property="Width" Value="16" />
+            <Setter Property="Height" Value="16" />
+            <Setter Property="Margin" Value="2" />
+        </Style>
+        <Style x:Key="imgButtonVerySmall" TargetType="Image">
+            <Setter Property="Width" Value="12" />
+            <Setter Property="Height" Value="12" />
+            <Setter Property="Margin" Value="2" />
+        </Style>
+        <Style x:Key="chbNormal" TargetType="CheckBox" >
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="3" />
+        </Style>
+        <Style x:Key="chbNormalBold" TargetType="CheckBox" >
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="3" />
+        </Style>
+        <Style x:Key="chbSmall" TargetType="CheckBox" >
+            <Setter Property="FontSize" Value="10" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="3" />
+        </Style>
+        <Style x:Key="cbNormal" TargetType="ComboBox" >
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="3" />
+            <Setter Property="MinWidth" Value="100" />
+            <Setter Property="Height" Value="24" />
+            <Setter Property="Background" Value="#cebbad" />
+        </Style>
+        <Style x:Key="cbSmall" TargetType="ComboBox" >
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="3" />
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="20" />
+            <Setter Property="Background" Value="#cebbad" />
+        </Style>
+        <Style x:Key="dpNormal" TargetType="DatePicker" >
+            <Setter Property="Height" Value="20" />
+            <Setter Property="Margin" Value="3" />
+            <Setter Property="MinWidth" Value="100" />
+            <Setter Property="FontSize" Value="10" />
+        </Style>
+        <Style x:Key="passNormal" TargetType="PasswordBox">
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="20" />
+            <Setter Property="Margin" Value="3" />
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+        
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Menu>
+            <MenuItem Header="Menu">
+                <MenuItem Header="Wyloguj" >
+                    <MenuItem.Icon>
+                        <Image Source="/Opportunity;component/Model/Images/exit.png" />
+                    </MenuItem.Icon>
+                    <ie:Interaction.Triggers>
+                        <ie:EventTrigger EventName="Click">
+                            <ie:InvokeCommandAction Command="{Binding WylogujCommand}" />
+                        </ie:EventTrigger>
+                    </ie:Interaction.Triggers>
+                </MenuItem>
+                <MenuItem Header="O programie" >
+                    <MenuItem.Icon>
+                        <Image Source="/Opportunity;component/Model/Images/info.png" />
+                    </MenuItem.Icon>
+                    <ie:Interaction.Behaviors>
+                        <local:AboutBoxOpen />
+                    </ie:Interaction.Behaviors>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <DockPanel Grid.Row="1">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                <DockPanel Visibility="{Binding IsZalogowany, Converter={StaticResource BoolOppositeToVisibilityConverter}}"> <!--Visibility="{Binding IsZalogowany, Converter={StaticResource BoolOppositeToVisibilityConverter}}"-->
+                    <TextBlock Text="Login" Style="{StaticResource txtNormal}"/>
+                    <TextBox Text="{Binding User}" Style="{StaticResource tbNormal}" />
+                    <TextBlock Text="Hasło" Style="{StaticResource txtNormal}" />
+                    <PasswordBox Style="{StaticResource passNormal}" Name="NetworkPassword" local:PasswordBoxAssistant.BindPassword="True" local:PasswordBoxAssistant.BoundPassword="{Binding Path=Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+                        <PasswordBox.InputBindings>
+                            <KeyBinding Key="Enter" Command="{Binding ZalogujCommand}" />
+                        </PasswordBox.InputBindings>
+                    </PasswordBox>
+                    <Button Style="{StaticResource btnSmall}" Command="{Binding ZalogujCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Style="{StaticResource imgButtonSmall}" Source="/Opportunity;component/Model/Images/accept.png" />
+                            <TextBlock Text="OK" Style="{StaticResource txtButtonSmall}" />
+                        </StackPanel>
+                    </Button>
+                </DockPanel>
+                <DockPanel Visibility="{Binding IsZalogowany, Converter={StaticResource BoolToVisibilityConverter}}" >
+                    <TextBlock Text="Użytkownik: " Style="{StaticResource txtNormal}" />
+                    <TextBlock Text="{Binding User}" Style="{StaticResource txtNormal}" />
+                    <Button Style="{StaticResource btnSmall}" Command="{Binding WylogujCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Style="{StaticResource imgButtonSmall}" Source="/Opportunity;component/Model/Images/cancel.png" />
+                            <TextBlock Text="Wyloguj" Style="{StaticResource txtButtonSmall}" />
+                        </StackPanel>
+                    </Button>
+                </DockPanel>
+            </StackPanel>
+            
+        </DockPanel>
+        <TabControl Grid.Row="2" Visibility="{Binding IsZalogowany, Converter={StaticResource BoolToVisibilityConverter}}">
+            <!--Visibility="{Binding IsZalogowany, Converter={StaticResource BoolToVisibilityConverter}}"-->
+            <TabItem Header="Narzędzia" Style="{StaticResource tiDuzaCzcionka}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="6*"/>
+                        <ColumnDefinition Width="4*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.Background>
+                        <ImageBrush ImageSource="/Opportunity;component/Model/Images/opportunity_background.png" Opacity="0.15"/>
+                    </Grid.Background>
+                    <DockPanel Grid.ColumnSpan="3" >
+                        <Button Style="{StaticResource btnNormal}" >
+                            <ie:Interaction.Behaviors>
+                                <local:TowarPremiumEdycjaOpen />
+                            </ie:Interaction.Behaviors>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Opportunity;component/Model/Images/add.png" Style="{StaticResource imgButtonNormal}"/>
+                                <TextBlock Text="Dodaj" Style="{StaticResource txtButtonNormal}"/>
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="btnOdswiezNarzedzia" Style="{StaticResource btnNormal}" Command="{Binding OdswiezListeTowarowCommand}">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Opportunity;component/Model/Images/refresh.png" Style="{StaticResource imgButtonNormal}"/>
+                                <TextBlock Text="Odśwież" Style="{StaticResource txtButtonNormal}"/>
+                            </StackPanel>
+                        </Button>
+                        <TextBlock Text="Zestawienia" Style="{StaticResource txtNormal}" />
+                        <ComboBox Style="{StaticResource cbNormal}" Width="200">
+                            <ComboBoxItem Content="Lista towarów" />
+                        </ComboBox>
+                        <TextBlock Text="Przekaż zaznaczone do: " Style="{StaticResource txtNormal}" />
+                        <ComboBox x:Name="cbPrzekazMasowoBrygadzista" DisplayMemberPath="Numer" Style="{StaticResource cbNormal}" ItemsSource="{Binding ListaBrygadzistow}">
+                        </ComboBox>
+                        <Button x:Name="btnPotwierdzPrzekazanie" Style="{StaticResource btnSmall}" Command="{Binding PrzekazMasowoCommand}" CommandParameter="{Binding ElementName=cbPrzekazMasowoBrygadzista, Path=SelectedValue}">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Opportunity;component/Model/Images/accept.png" Style="{StaticResource imgButtonSmall}"/>
+                                <TextBlock Text="Potwierdź" Style="{StaticResource txtButtonSmall}"/>
+                            </StackPanel>
+                        </Button>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <TextBox Style="{StaticResource tbLarge}" Text="{Binding SzukanaFrazaTowar, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Image Style="{StaticResource imgButtonNormal}" Source="/Opportunity;component/Model/Images/search.png" />
+                        </StackPanel>
+                    </DockPanel>
+                    <StackPanel Grid.Row="1">
+                        <TextBlock Text="Filtry:" Style="{StaticResource txtNormalBold}" />
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Brygadzista: " Style="{StaticResource txtNormal}" />
+                            <ComboBox x:Name="cbFiltrBrygadzista" DisplayMemberPath="Numer" Style="{StaticResource cbNormal}" SelectedIndex="0">
+                                <ie:Interaction.Triggers>
+                                    <ie:EventTrigger EventName="SelectionChanged" >
+                                        <ie:InvokeCommandAction Command="{Binding FiltrBrygadzistaSelectedCommand}" CommandParameter="{Binding ElementName=cbFiltrBrygadzista, Path=SelectedValue}" />
+                                    </ie:EventTrigger>
+                                </ie:Interaction.Triggers>
+                                <ComboBox.ItemsSource>
+                                    <CompositeCollection>
+                                        <ComboBoxItem Content="Wszyscy" />
+                                        <CollectionContainer Collection="{Binding Source={StaticResource listaBrygadzistow}}" />
+                                    </CompositeCollection>
+                                </ComboBox.ItemsSource>
+                            </ComboBox>
+                        </StackPanel>
+                        <CheckBox Content="W magazynie" IsChecked="{Binding TowaryFiltrWMagazynie, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource chbNormal}"/>
+                        <CheckBox Content="Wydane" IsChecked="{Binding TowaryFiltrWydane, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource chbNormal}"/>
+                        <CheckBox Content="Wycofane" IsChecked="{Binding TowaryFiltrWycofane, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource chbNormal}"/>
+                        <CheckBox Content="Tylko bez potwierdzenia" IsChecked="{Binding TowaryFiltrBezPotwierdzenia, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource chbNormal}" />
+                        <Border BorderBrush="LightGray" BorderThickness="1" Margin="10, 15" />
+                        <StackPanel>
+                            <TextBlock Text="Lista przyjęć narzędzi do potwierdzenia" Style="{StaticResource txtNormalBold}"/>
+                            <ItemsControl ItemsSource="{Binding ListaWydanDoPotwierdzenia}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition />
+                                                <ColumnDefinition />
+                                                <ColumnDefinition />
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition />
+                                                <RowDefinition />
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Grid.Column="1" Text="{Binding NazwaTowaru}" Style="{StaticResource txtNormal}" />
+                                            <TextBlock Grid.Column="0" Text="{Binding DataWydania, StringFormat=yyyy-MM-dd}" Style="{StaticResource txtNormal}" />
+                                            <TextBlock Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Wydajacy}" Style="{StaticResource txtNormal}" />
+                                            <ToggleButton Grid.Column="3" x:Name="tbtnUwagiPotwierdzenie" Style="{StaticResource tbtnSmall}">
+                                                <ToggleButton.ToolTip>
+                                                    <TextBlock Text="Dodaj uwagę" />
+                                                </ToggleButton.ToolTip>
+                                                <Image Source="/Opportunity;component/Model/Images/add.png" Style="{StaticResource imgButtonSmall}"/>
+                                            </ToggleButton>
+                                            <StackPanel Visibility="{Binding ElementName=tbtnUwagiPotwierdzenie, Path=IsChecked, Converter={StaticResource BoolToVisibilityConverter}}" Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                                                <TextBlock Text="Uwagi" Style="{StaticResource txtSmall}" />
+                                                <TextBox  x:Name="tbPotwierdzenieUwaga" Text="{Binding PotwierdzenieUwagi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource tbSmall}" />
+                                            </StackPanel>
+                                            <Button Grid.Column="4" Style="{StaticResource btnSmall}" Command="{Binding ElementName=thisWindow, Path=DataContext.PotwierdzPrzyjecieCommand}" CommandParameter="{Binding }">
+                                                <Image Style="{StaticResource imgButtonSmall}" Source="/Opportunity;component/Model/Images/accept.png" />
+                                            </Button>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                    </StackPanel>
+                    <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" Grid.Column="1" Grid.Row="1">
+                        <DataGrid Style="{StaticResource dgNormal}" ItemsSource="{Binding TowaryFiltr}" SelectedItem="{Binding TowarWybrany, UpdateSourceTrigger=PropertyChanged}" 
+                                  Background="Transparent" RowBackground="Transparent" IsReadOnly="False" >
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Marka" Binding="{Binding NazwaMarki}" Width="2*" IsReadOnly="True"/>
+                                <DataGridTextColumn Header="Model" Binding="{Binding Model}" Width="2*" IsReadOnly="True"/>
+                                <DataGridTextColumn Header="Data przyjecia" Binding="{Binding DataPrzyjecia, StringFormat=yyyy-MM-dd}" Width="2*" IsReadOnly="True"/>
+                                <DataGridTextColumn Header="Data wydania" Binding="{Binding DataWydania, StringFormat=yyyy-MM-dd}" Width="2*" IsReadOnly="True"/>
+                                <DataGridTextColumn Header="Brygadzista" Binding="{Binding Brygadzista}" Width="2*" IsReadOnly="True"/>
+                                <DataGridCheckBoxColumn Header="Z" Binding="{Binding Zaznaczony, UpdateSourceTrigger=PropertyChanged}" Width="1*" IsReadOnly="False"/>
+                            </DataGrid.Columns>
+                            <DataGrid.GroupStyle>
+                                <GroupStyle>
+                                    <GroupStyle.HeaderTemplate>
+                                        <DataTemplate>
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding Path=Name}" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </GroupStyle.HeaderTemplate>
+                                    <GroupStyle.ContainerStyle>
+                                        <Style TargetType="{x:Type GroupItem}">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="{x:Type GroupItem}">
+                                                        <Expander x:Name="expTowary" IsExpanded="True">
+                                                            <Expander.Header>
+                                                                <StackPanel Orientation="Horizontal">
+                                                                    <TextBlock Text="{Binding Path=Name}" Margin="0,0,3,0"/>
+                                                                    <TextBlock Text="Ilość:" Margin="0,0,3,0"/>
+                                                                    <TextBlock Text="{Binding Path=ItemCount}"/>
+                                                                </StackPanel>
+                                                            </Expander.Header>
+                                                            <ItemsPresenter />
+                                                        </Expander>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </GroupStyle.ContainerStyle>
+                                </GroupStyle>
+                            </DataGrid.GroupStyle>
+                            <DataGrid.RowStyle>
+                                <Style TargetType="DataGridRow">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsWycofany}" Value="True" >
+                                            <Setter Property="Foreground" Value="Red" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGrid.RowStyle>
+                        </DataGrid>
+                    </ScrollViewer>
+                    <StackPanel Grid.Column="2" Grid.Row="1" Visibility="{Binding  ElementName=thisWindow, Path=DataContext.IsTowarWybrany, Converter={StaticResource BoolToVisibilityConverter}}" Margin="3" DataContext="{Binding TowarWybrany}" >
+                        <!-- Przyjecie towaru-->
+                        <StackPanel Visibility="{Binding IsTowarDoPrzyjecia, Converter={StaticResource BoolToVisibilityConverter}}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions >
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Column="0" Grid.Row="0" Text="Data" Style="{StaticResource txtSmall}" />
+                                <TextBlock Grid.Column="0" Grid.Row="1" Text="Numer dokumentu" Style="{StaticResource txtSmall}" />
+                                <TextBlock Grid.Column="0" Grid.Row="2" Text="Uwagi" Style="{StaticResource txtSmall}" />
+                                <DatePicker x:Name="dpPrzyjecieData" Grid.Column="1" Grid.Row="0" Style="{StaticResource dpNormal}" SelectedDate="{x:Static sys:DateTime.Now}"/>
+                                <DockPanel Grid.Column="1" Grid.Row="1">
+                                    <TextBox x:Name="txtPrzyjecieNumer"  Style="{StaticResource tbNormal}" />
+                                    <Button Style="{StaticResource btnVerySmall}" HorizontalAlignment="Right">
+                                        <Button.ToolTip>
+                                            <TextBlock Text="Wczytaj dokument" />
+                                        </Button.ToolTip>
+                                        <ie:Interaction.Behaviors>
+                                            <local:DodajPlik Field="path_towar_przyjecie_nowe" />
+                                        </ie:Interaction.Behaviors>
+                                        <StackPanel Orientation="Horizontal" >
+                                            <Image Source="/Opportunity;component/Model/Images/add.png" Style="{StaticResource imgButtonVerySmall}"/>
+                                        </StackPanel>
+                                    </Button>
+                                </DockPanel>
+                                <TextBox x:Name="txtPrzyjecieUwagi" Grid.Column="1" Grid.Row="2" Style="{StaticResource tbNormal}" />
+                                <Button Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" Style="{StaticResource btnSmall}" Command="{Binding ElementName=thisWindow, Path=DataContext.NowePrzyjecieZapiszCommand}">
+                                    <Button.CommandParameter>
+                                        <MultiBinding Converter="{StaticResource MultiBindingConverter}">
+                                            <Binding ElementName="dpPrzyjecieData" Path="SelectedDate" />
+                                            <Binding ElementName="txtPrzyjecieNumer" Path="Text" />
+                                            <Binding ElementName="txtPrzyjecieUwagi" Path="Text" />
+                                        </MultiBinding>
+                                    </Button.CommandParameter>
+                                    <StackPanel Orientation="Horizontal" >
+                                        <Image Source="/Opportunity;component/Model/Images/disk.png" Style="{StaticResource imgButtonSmall}"/>
+                                        <TextBlock Text="Przyjmij" Style="{StaticResource txtSmall}"/>
+                                    </StackPanel>
+                                </Button>
+                            </Grid>
+                        </StackPanel>
+                        <!-- Wydanie towaru-->
+                        <StackPanel Visibility="{Binding IsTowarDoWydania, Converter={StaticResource BoolToVisibilityConverter}}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions >
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Column="0" Grid.Row="0" Text="Data" Style="{StaticResource txtSmall}" />
+                                <TextBlock Grid.Column="0" Grid.Row="1" Text="Pracownik" Style="{StaticResource txtSmall}" />
+                                <TextBlock Grid.Column="0" Grid.Row="2" Text="Uwagi" Style="{StaticResource txtSmall}" />
+                                <DatePicker x:Name="dpWydanieData" Grid.Column="1" Grid.Row="0" Style="{StaticResource dpNormal}" SelectedDate="{x:Static sys:DateTime.Now}"/>
+                                <ComboBox x:Name="cbWydaniePracownik" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding ElementName=thisWindow, Path=DataContext.ListaBrygadzistow}" DisplayMemberPath="Numer" SelectedValuePath="Id" Style="{StaticResource cbNormal}"/>
+                                <TextBox x:Name="txtWydanieUwagi" Grid.Column="1" Grid.Row="2" Style="{StaticResource tbNormal}" />
+                                <StackPanel Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" VerticalAlignment="Center">
+                                    <Button  Style="{StaticResource btnSmall}" Command="{Binding ElementName=thisWindow, Path=DataContext.NoweWydanieZapiszCommand}">
+                                        <Button.CommandParameter>
+                                            <MultiBinding Converter="{StaticResource MultiBindingConverter}">
+                                                <Binding ElementName="dpWydanieData" Path="SelectedDate" />
+                                                <Binding ElementName="cbWydaniePracownik" Path="SelectedValue" />
+                                                <Binding ElementName="txtWydanieUwagi" Path="Text" />
+                                            </MultiBinding>
+                                        </Button.CommandParameter>
+                                        <StackPanel Orientation="Horizontal" >
+                                            <Image Source="/Opportunity;component/Model/Images/arrow_up.png" Style="{StaticResource imgButtonSmall}"/>
+                                            <TextBlock Text="Wydaj" Style="{StaticResource txtSmall}"/>
+                                        </StackPanel>
+                                    </Button>
+                                    <TextBlock x:Name="wartosc0" Text="0" Visibility="Collapsed" />
+                                    <Button  Style="{StaticResource btnSmall}" Command="{Binding ElementName=thisWindow, Path=DataContext.NoweWydanieZapiszCommand}">
+                                        <Button.CommandParameter>
+                                            <MultiBinding Converter="{StaticResource MultiBindingConverter}">
+                                                <Binding ElementName="dpWydanieData" Path="SelectedDate" />
+                                                <Binding ElementName="wartosc0" Path="Text" />
+                                                <Binding ElementName="txtWydanieUwagi" Path="Text" />
+                                            </MultiBinding>
+                                        </Button.CommandParameter>
+                                        <StackPanel Orientation="Horizontal" >
+                                            <Image Source="/Opportunity;component/Model/Images/arrow_down.png" Style="{StaticResource imgButtonSmall}"/>
+                                            <TextBlock Text="Zwrot" Style="{StaticResource txtSmall}"/>
+                                        </StackPanel>
+                                    </Button>
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+                        <Border BorderThickness="1" BorderBrush="LightGray" Margin="10" />
+                        <!-- Dane towaru-->
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Column="0" Grid.Row="0" Text="Typ" Style="{StaticResource txtSmall}" />
+                            <TextBlock Grid.Column="0" Grid.Row="1" Text="Marka" Style="{StaticResource txtSmall}" />
+                            <TextBlock Grid.Column="0" Grid.Row="2" Text="Model" Style="{StaticResource txtSmall}" />
+                            <TextBlock Grid.Column="0" Grid.Row="3" Text="EAN" Style="{StaticResource txtSmall}" />
+                            <TextBlock Grid.Column="0" Grid.Row="4" Text="Uwagi" Style="{StaticResource txtSmall}" />
+                            <ComboBox Grid.Column="1" Grid.Row="0" ItemsSource="{Binding ElementName=thisWindow, Path=DataContext.ListaNazwTypowTowarow}" SelectedItem="{Binding NazwaTypu}" Style="{StaticResource cbSmall}" />
+                            <ComboBox Grid.Column="1" Grid.Row="1" ItemsSource="{Binding ElementName=thisWindow, Path=DataContext.ListaNazwMarekTowarow}" SelectedItem="{Binding NazwaMarki}" Style="{StaticResource cbSmall}" />
+                            <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Model}" Style="{StaticResource tbSmall}" />
+                            <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding Ean}" Style="{StaticResource tbSmall}" />
+                            <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding Uwagi}" Style="{StaticResource tbSmall}" />
+                            <Button Grid.Column="1" Grid.Row="5"  Style="{StaticResource btnSmall}" Command="{Binding ZapiszDaneTowaruCommand}">
+                                <StackPanel Orientation="Horizontal" >
+                                    <Image Source="/Opportunity;component/Model/Images/disk.png" Style="{StaticResource imgButtonSmall}"/>
+                                    <TextBlock Text="Zapisz" Style="{StaticResource txtButtonSmall}"/>
+                                </StackPanel>
+                            </Button>
+                            <Grid Grid.Column="2" Grid.Row="0" Grid.RowSpan="6" Margin="10,0,0,0">
+                                <Image Source="{Binding BitmapZdjecie}">
+                                    <ie:Interaction.Behaviors>
+                                        <local:PictureOpen />
+                                    </ie:Interaction.Behaviors>
+                                </Image>
+                                <Button Style="{StaticResource btnSmall}" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                                    <Button.ToolTip>
+                                        <TextBlock Text="Dodaj zdjęcie" />
+                                    </Button.ToolTip>
+                                    <ie:Interaction.Behaviors>
+                                        <local:DodajPlik Field="path_zdjecie" />
+                                    </ie:Interaction.Behaviors>
+                                    <Image Source="/Opportunity;component/Model/Images/add.png" />
+                                </Button>
+                            </Grid>
+                        </Grid>
+                        <!-- Lista wydań-->
+                        <TextBlock Text="Wydania" Style="{StaticResource txtNormal}" />
+                        <DataGrid ItemsSource="{Binding ListaWydan}" Style="{StaticResource dgNormal}" FontSize="10">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Data wydania" Binding="{Binding DataWydania, StringFormat=yyyy-MM-dd}" Width="2*"/>
+                                <DataGridTextColumn Header="Przyjmujący" Binding="{Binding Przyjmujacy}" Width="3*"/>
+                            </DataGrid.Columns>
+                            <DataGrid.RowStyle>
+                                <Style TargetType="DataGridRow">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsPotwierdzeniePrzyjmujacego}" Value="True" >
+                                            <Setter Property="Foreground" Value="Green" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding IsPotwierdzeniePrzyjmujacego}" Value="False" >
+                                            <Setter Property="Foreground" Value="Red" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGrid.RowStyle>
+                        </DataGrid>
+                        <!-- Lista przyjęć -->
+                        <TextBlock Text="Przyjęcia" Style="{StaticResource txtNormal}" />
+                        <DataGrid ItemsSource="{Binding ListaPrzyjec}" Style="{StaticResource dgNormal}" FontSize="10">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Data przyjęcia" Binding="{Binding DataPrzyjecia, StringFormat=yyyy-MM-dd}" Width="2*"/>
+                                <DataGridTextColumn Header="Numer faktury" Binding="{Binding NumerFaktury}" Width="3*"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <!-- Dodatkowe przyciski-->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Column="0" Grid.Row="0" Text="Pliki:" Style="{StaticResource txtNormal}" />
+                            <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal">
+                                <Button Style="{StaticResource btnSmall}" >
+                                    <Button.ToolTip>
+                                        <TextBlock Text="Dodaj pliki" />
+                                    </Button.ToolTip>
+                                    <ie:Interaction.Behaviors>
+                                        <local:DodajPliki />
+                                    </ie:Interaction.Behaviors>
+                                    <Image Style="{StaticResource imgButtonVerySmall}" Source="/Opportunity;component/Model/Images/add.png" />
+                                </Button>
+                                <Button Style="{StaticResource btnSmall}" >
+                                    <ie:Interaction.Behaviors>
+                                        <local:OtworzKatalog />
+                                    </ie:Interaction.Behaviors>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Style="{StaticResource imgButtonVerySmall}" Source="/Opportunity;component/Model/Images/folder.png" />
+                                        <TextBlock Text="Folder" Style="{StaticResource txtButtonSmall}" />
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
+                            <TextBlock Grid.Column="0" Grid.Row="1" Text="Gwarancja: " Style="{StaticResource txtNormal}" />
+                            <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
+                                <Button Style="{StaticResource btnSmall}" >
+                                    <Button.ToolTip>
+                                        <TextBlock Text="Dodaj dokument" />
+                                    </Button.ToolTip>
+                                    <ie:Interaction.Behaviors>
+                                        <local:DodajPlik Field="path_gwarancja" />
+                                    </ie:Interaction.Behaviors>
+                                    <Image Style="{StaticResource imgButtonVerySmall}" Source="/Opportunity;component/Model/Images/add.png" />
+                                </Button>
+                                <Image Source="{Binding BitmapGwarancja}" Style="{StaticResource imgButtonBig}" >
+                                    <ie:Interaction.Behaviors>
+                                        <local:PictureOpen />
+                                    </ie:Interaction.Behaviors>
+                                </Image>
+                            </StackPanel>
+                            <ToggleButton x:Name="tbtnWycofaj" Grid.Column="2" Grid.Row="1" Style="{StaticResource tbtnSmall}" Width="100" HorizontalAlignment="Right" >
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Style="{StaticResource imgButtonSmall}" Source="/Opportunity;component/Model/Images/bin.png" />
+                                    <TextBlock Text="WYCOFAJ" Style="{StaticResource txtButtonSmall}" />
+                                </StackPanel>
+                            </ToggleButton>
+                            <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Visibility="{Binding ElementName=tbtnWycofaj, Path=IsChecked, Converter={StaticResource BoolToVisibilityConverter}}" >
+                                <DatePicker x:Name="dpWycofanieData" Style="{StaticResource dpNormal}" SelectedDate="{x:Static sys:DateTime.Now}"/>
+                                <TextBlock Text="Uwagi:" Style="{StaticResource txtSmall}" />
+                                <TextBox x:Name="tbWycofanieUwagi" Style="{StaticResource tbNormal}" />
+                                <Button Grid.Column="0" Grid.Row="2" Style="{StaticResource btnSmall}" >
+                                    <ie:Interaction.Behaviors>
+                                        <local:DodajPlik Field="path_towar_wycofanie_nowe" />
+                                    </ie:Interaction.Behaviors>
+                                    <StackPanel Orientation="Horizontal" >
+                                        <Image Source="/Opportunity;component/Model/Images/add.png" Style="{StaticResource imgButtonSmall}"/>
+                                    </StackPanel>
+                                </Button>
+                                <Button Style="{StaticResource btnSmall}" Command="{Binding ElementName=thisWindow, Path=DataContext.NoweWycofanieZapiszCommand}" >
+                                    <Button.CommandParameter>
+                                        <MultiBinding Converter="{StaticResource MultiBindingConverter}">
+                                            <Binding ElementName="dpWycofanieData" Path="SelectedDate" />
+                                            <Binding ElementName="txtPrzyjecieNumer" Path="Text" />
+                                            <Binding ElementName="tbWycofanieUwagi" Path="Text" />
+                                        </MultiBinding>
+                                    </Button.CommandParameter>
+                                    <StackPanel Orientation="Horizontal" >
+                                        <Image Style="{StaticResource imgButtonSmall}" Source="/Opportunity;component/Model/Images/cancel.png" />
+                                        <TextBlock Text="Wycofaj" Style="{StaticResource txtButtonSmall}" />
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Magazyn" Style="{StaticResource tiDuzaCzcionka}" Visibility="Collapsed">
+                <StackPanel>
+                    <StackPanel.Background>
+                        <ImageBrush ImageSource="/Opportunity;component/Model/Images/opportunity_background.png" Opacity="0.15"/>
+                    </StackPanel.Background>
+                    <DockPanel>
+                        <Button Style="{StaticResource btnNormal}" >
+                            <ie:Interaction.Behaviors>
+                                <local:TowarEdycjaOpen />
+                            </ie:Interaction.Behaviors>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Opportunity;component/Model/Images/add.png" />
+                                <TextBlock Text="Dodaj" Style="{StaticResource txtButtonNormal}"/>
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="btnOdswiezMagazyn" Style="{StaticResource btnNormal}" Command="{Binding OdswiezListeMagazynCommand}">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Opportunity;component/Model/Images/refresh.png" Style="{StaticResource imgButtonNormal}"/>
+                                <TextBlock Text="Odśwież" Style="{StaticResource txtButtonNormal}"/>
+                            </StackPanel>
+                        </Button>
+                        <TextBlock Text="Zestawienia" Style="{StaticResource txtNormal}" />
+                        <ComboBox Style="{StaticResource cbNormal}" Width="200">
+                            <ComboBoxItem Content="Lista towarów" />
+                        </ComboBox>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <TextBox Style="{StaticResource tbLarge}" Text="{Binding SzukanaFrazaMagazyn, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Image Style="{StaticResource imgButtonNormal}" Source="/Opportunity;component/Model/Images/search.png" />
+                        </StackPanel>
+                    </DockPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Text="Filtry:" Style="{StaticResource txtNormalBold}" />
+                            <CheckBox Content="W magazynie" IsChecked="{Binding MagazynFiltrWMagazynie, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource chbNormal}"/>
+                            <CheckBox Content="Wydane" IsChecked="{Binding MagazynFiltrWydane, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource chbNormal}"/>
+                            <CheckBox Content="Wycofane" IsChecked="{Binding MagazynFiltrWycofane, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource chbNormal}"/>
+                            <CheckBox Content="Tylko bez potwierdzenia" IsChecked="{Binding MagazynFiltrBezPotwierdzenia, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource chbNormal}" />
+                        </StackPanel>
+                        <DataGrid Grid.Column="1" Style="{StaticResource dgNormal}" ItemsSource="{Binding MagazynFiltr}" SelectedItem="{Binding MagazynWybrany, UpdateSourceTrigger=PropertyChanged}" Background="Transparent" RowBackground="Transparent">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Nazwa" Binding="{Binding Nazwa}" Width="1*"/>
+                                <DataGridTextColumn Header="Marka" Binding="{Binding Marka}" Width="1*"/>
+                                <DataGridTextColumn Header="Model" Binding="{Binding Model}" Width="1*"/>
+                                <DataGridTextColumn Header="Data przyjecia" Binding="{Binding DataPrzyjecia, StringFormat=yyyy-MM-dd}" Width="1*" />
+                                <DataGridTextColumn Header="Stan w magazynie" Binding="{Binding StanMagazynowy, StringFormat=N0}" Width="1*" />
+                                <DataGridTextColumn Header="Stan wydanych" Binding="{Binding StanWydanych, StringFormat=N0}" Width="1*" />
+                            </DataGrid.Columns>
+                            <DataGrid.RowStyle>
+                                <Style TargetType="DataGridRow">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsWycofany}" Value="True" >
+                                            <Setter Property="Foreground" Value="Red" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGrid.RowStyle>
+                        </DataGrid>
+                        <StackPanel Grid.Column="2" Visibility="{Binding ElementName=thisWindow, Path=DataContext.IsMagazynWybrany, Converter={StaticResource BoolToVisibilityConverter}}" Margin="3" DataContext="{Binding MagazynWybrany}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Column="0" Grid.Row="0" Text="Nazwa" Style="{StaticResource txtSmall}" />
+                                <TextBlock Grid.Column="0" Grid.Row="1" Text="Marka" Style="{StaticResource txtSmall}" />
+                                <TextBlock Grid.Column="0" Grid.Row="2" Text="Model" Style="{StaticResource txtSmall}" />
+                                <TextBlock Grid.Column="0" Grid.Row="3" Text="EAN" Style="{StaticResource txtSmall}" />
+                                <TextBlock Grid.Column="0" Grid.Row="4" Text="Uwagi" Style="{StaticResource txtSmall}" />
+                                <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Nazwa}" Style="{StaticResource tbSmall}" />
+                                <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Marka}" Style="{StaticResource tbSmall}" />
+                                <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Model}" Style="{StaticResource tbSmall}" />
+                                <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding Ean}" Style="{StaticResource tbSmall}" />
+                                <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding Nazwa}" Style="{StaticResource tbSmall}" />
+                                <Button Grid.Column="1" Grid.Row="5"  Style="{StaticResource btnSmall}" Command="{Binding ZapiszDaneTowaruCommand}">
+                                    <StackPanel Orientation="Horizontal" >
+                                        <Image Source="/Opportunity;component/Model/Images/disk.png" Style="{StaticResource imgButtonSmall}"/>
+                                        <TextBlock Text="Zapisz" Style="{StaticResource txtButtonSmall}"/>
+                                    </StackPanel>
+                                </Button>
+                            </Grid>
+                            <TextBlock Text="{Binding TowarWybrany.Nazwa}" Style="{StaticResource txtNormalBold}"/>
+                            <TabControl FontSize="14" Background="Transparent">
+                                <TabItem Header="Przyjmij" >
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Grid.Column="0" Grid.Row="0" Text="Ilość" Style="{StaticResource txtNormal}" />
+                                        <TextBlock Grid.Column="0" Grid.Row="1" Text="Data" Style="{StaticResource txtNormal}" />
+                                        <TextBlock Grid.Column="0" Grid.Row="2" Text="Numer faktury" Style="{StaticResource txtNormal}" />
+                                        <TextBlock Grid.Column="0" Grid.Row="3" Text="Uwagi" Style="{StaticResource txtNormal}" />
+                                        <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding NowePrzyjecie.Ilosc}" Style="{StaticResource tbNormal}" />
+                                        <DatePicker Grid.Column="1" Grid.Row="1" SelectedDate="{Binding NowePrzyjecie.DataPrzyjecia}" Style="{StaticResource dpNormal}"/>
+                                        <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding NowePrzyjecie.NumerFaktury}" Style="{StaticResource tbNormal}"/>
+                                        <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding NowePrzyjecie.Uwagi}" Height="80" Style="{StaticResource tbNormal}"/>
+                                        <Button Grid.Column="0" Grid.Row="4" Style="{StaticResource btnSmall}" >
+                                            <StackPanel Orientation="Horizontal" >
+                                                <Image Source="/Opportunity;component/Model/Images/add.png" Style="{StaticResource imgButtonSmall}"/>
+                                                <TextBlock Text="Dokument" Style="{StaticResource txtSmall}"/>
+                                            </StackPanel>
+                                        </Button>
+                                        <Button Grid.Column="1" Grid.Row="4" Style="{StaticResource btnSmall}" Command="{Binding NowePrzyjecieZapiszCommand}" Margin="20,5">
+                                            <StackPanel Orientation="Horizontal" >
+                                                <Image Source="/Opportunity;component/Model/Images/disk.png" Style="{StaticResource imgButtonSmall}"/>
+                                                <TextBlock Text="Zapisz" Style="{StaticResource txtSmall}"/>
+                                            </StackPanel>
+                                        </Button>
+                                    </Grid>
+                                </TabItem>
+                                <TabItem Header="Wydaj" >
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Grid.Column="0" Grid.Row="0" Text="Ilość" Style="{StaticResource txtNormal}" />
+                                        <TextBlock Grid.Column="0" Grid.Row="1" Text="Data" Style="{StaticResource txtNormal}" />
+                                        <TextBlock Grid.Column="0" Grid.Row="2" Text="Pracownik" Style="{StaticResource txtNormal}" />
+                                        <TextBlock Grid.Column="0" Grid.Row="3" Text="Uwagi" Style="{StaticResource txtNormal}" />
+                                        <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding NoweWydanie.Ilosc}" Style="{StaticResource tbNormal}" />
+                                        <DatePicker Grid.Column="1" Grid.Row="1" SelectedDate="{Binding NoweWydanie.DataWydania}" Style="{StaticResource dpNormal}"/>
+                                        <ComboBox Grid.Column="1" Grid.Row="2" x:Name="cbWydanieMagazynDodaj" ItemsSource="{Binding ElementName=thisWindow, Path=DataContext.ListaPracownikow}" DisplayMemberPath="Numer" SelectedValuePath="Id" Style="{StaticResource cbNormal}"/>
+                                        <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding NoweWydanie.Uwagi}" Height="80" Style="{StaticResource tbNormal}" />
+                                        <Button Grid.Column="1" Grid.Row="4" Style="{StaticResource btnSmall}" Command="{Binding NoweWydanieZapiszCommand}" CommandParameter="{Binding ElementName=cbWydanieMagazynDodaj, Path=SelectedValue}" Margin="20,5">
+                                            <StackPanel Orientation="Horizontal" >
+                                                <Image Source="/Opportunity;component/Model/Images/disk.png" Style="{StaticResource imgButtonSmall}"/>
+                                                <TextBlock Text="Zapisz" Style="{StaticResource txtSmall}"/>
+                                            </StackPanel>
+                                        </Button>
+                                    </Grid>
+                                </TabItem>
+                                <TabItem Header="Pobierz" >
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Grid.Column="0" Grid.Row="0" Text="Ilość" Style="{StaticResource txtNormal}" />
+                                        <TextBlock Grid.Column="0" Grid.Row="1" Text="Data" Style="{StaticResource txtNormal}" />
+                                        <TextBlock Grid.Column="0" Grid.Row="2" Text="Pracownik" Style="{StaticResource txtNormal}" />
+                                        <TextBlock Grid.Column="0" Grid.Row="3" Text="Uwagi" Style="{StaticResource txtNormal}" />
+                                        <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding NowePobranie.Ilosc}" Style="{StaticResource tbNormal}" />
+                                        <DatePicker Grid.Column="1" Grid.Row="1" SelectedDate="{Binding NowePobranie.DataWydania}" Style="{StaticResource dpNormal}"/>
+                                        <ComboBox Grid.Column="1" Grid.Row="2" x:Name="cbPobranieMagazynDodaj" ItemsSource="{Binding ElementName=thisWindow, Path=DataContext.ListaPracownikowDlaMagazynu}" DisplayMemberPath="Numer" SelectedValuePath="Id" Style="{StaticResource cbNormal}"/>
+                                        <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding NowePobranie.Uwagi}" Height="80" Style="{StaticResource tbNormal}" />
+                                        <Button Grid.Column="1" Grid.Row="4" Style="{StaticResource btnSmall}" Command="{Binding NowePobranieZapiszCommand}" CommandParameter="{Binding ElementName=cbPobranieMagazynDodaj, Path=SelectedValue}" Margin="20,5">
+                                            <StackPanel Orientation="Horizontal" >
+                                                <Image Source="/Opportunity;component/Model/Images/disk.png" Style="{StaticResource imgButtonSmall}"/>
+                                                <TextBlock Text="Zapisz" Style="{StaticResource txtSmall}"/>
+                                            </StackPanel>
+                                        </Button>
+                                    </Grid>
+                                </TabItem>
+                                <TabItem Header="Wycofaj" >
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Grid.Column="0" Grid.Row="0" Text="Ilość" Style="{StaticResource txtNormal}" />
+                                        <TextBlock Grid.Column="0" Grid.Row="1" Text="Data" Style="{StaticResource txtNormal}" />
+                                        <TextBlock Grid.Column="0" Grid.Row="2" Text="Uwagi" Style="{StaticResource txtNormal}" />
+                                        <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding NoweWycofanie.Ilosc}" Style="{StaticResource tbNormal}" />
+                                        <DatePicker Grid.Column="1" Grid.Row="1" SelectedDate="{Binding NoweWycofanie.DataWycofania}" Style="{StaticResource dpNormal}"/>
+                                        <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding NoweWycofanie.Uwagi}" Height="80" Style="{StaticResource tbNormal}" />
+                                        <Button Grid.Column="0" Grid.Row="3" Style="{StaticResource btnSmall}" >
+                                            <StackPanel Orientation="Horizontal" >
+                                                <Image Source="/Opportunity;component/Model/Images/add.png" Style="{StaticResource imgButtonSmall}"/>
+                                                <TextBlock Text="Dokument" Style="{StaticResource txtSmall}"/>
+                                            </StackPanel>
+                                        </Button>
+                                        <Button Grid.Column="1" Grid.Row="3" Style="{StaticResource btnSmall}" Command="{Binding NoweWycofanieZapiszCommand}" Margin="20,5">
+                                            <StackPanel Orientation="Horizontal" >
+                                                <Image Source="/Opportunity;component/Model/Images/disk.png" Style="{StaticResource imgButtonSmall}"/>
+                                                <TextBlock Text="Zapisz" Style="{StaticResource txtSmall}"/>
+                                            </StackPanel>
+                                        </Button>
+                                    </Grid>
+                                </TabItem>
+                            </TabControl>
+                            <TextBlock Text="Wydania" Style="{StaticResource txtNormal}" />
+                            <DataGrid ItemsSource="{Binding ListaWydan}" Style="{StaticResource dgNormal}" FontSize="10">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Data wydania" Binding="{Binding DataWydania, StringFormat=yyyy-MM-dd}" Width="2*"/>
+                                    <DataGridTextColumn Header="Przyjmujący" Binding="{Binding Przyjmujacy}" Width="3*"/>
+                                    <DataGridTextColumn Header="Ilość" Binding="{Binding Ilosc}" Width="1*"/>
+                                </DataGrid.Columns>
+                                <DataGrid.RowStyle>
+                                    <Style TargetType="DataGridRow">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding IsPotwierdzeniePrzyjmujacego}" Value="True" >
+                                                <Setter Property="Foreground" Value="Green" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding IsPotwierdzeniePrzyjmujacego}" Value="False" >
+                                                <Setter Property="Foreground" Value="Red" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGrid.RowStyle>
+                            </DataGrid>
+                            <TextBlock Text="Przyjęcia" Style="{StaticResource txtNormal}" />
+                            <DataGrid ItemsSource="{Binding ListaPrzyjec}" Style="{StaticResource dgNormal}" FontSize="10">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Data przyjęcia" Binding="{Binding DataPrzyjecia, StringFormat=yyyy-MM-dd}" Width="2*"/>
+                                    <DataGridTextColumn Header="Numer faktury" Binding="{Binding NumerFaktury}" Width="3*"/>
+                                    <DataGridTextColumn Header="Ilość" Binding="{Binding Ilosc}" Width="1*"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Lista pracowników" Style="{StaticResource tiDuzaCzcionka}" IsEnabled="{Binding IsAdmin}">
+                <Grid>
+                    <Grid.ColumnDefinitions >
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.Background>
+                        <ImageBrush ImageSource="/Opportunity;component/Model/Images/opportunity_background.png" Opacity="0.15"/>
+                    </Grid.Background>
+                    <DockPanel Grid.ColumnSpan="2">
+                        <Button Style="{StaticResource btnNormal}">
+                            <ie:Interaction.Behaviors>
+                                <local:PracownikEdycjaOpen />
+                            </ie:Interaction.Behaviors>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Opportunity;component/Model/Images/add.png" Style="{StaticResource imgButtonNormal}"/>
+                                <TextBlock Text="Dodaj" Style="{StaticResource txtButtonNormal}"/>
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="btnOdswiez" Style="{StaticResource btnNormal}" Command="{Binding OdswiezListePracownikowCommand}">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Opportunity;component/Model/Images/refresh.png" Style="{StaticResource imgButtonNormal}"/>
+                                <TextBlock Text="Odśwież" Style="{StaticResource txtButtonNormal}"/>
+                            </StackPanel>
+                        </Button>
+                        <TextBlock Text="Zestawienia" Style="{StaticResource txtNormal}" />
+                        <ComboBox Style="{StaticResource cbNormal}" Width="200">
+                            <ComboBoxItem Content="Lista pracowników" />
+                            <ComboBoxItem Content="Pracownicy z wygasającym zezwoleniem" />
+                            <ComboBoxItem Content="Pracownicy z wygasającym badaniem" />
+                            <ComboBoxItem Content="Pracownicy z wygasającym zameldowaniemm" />
+                        </ComboBox>
+                        <CheckBox Content="Dokumenty wystawione dzisiaj" IsChecked="{Binding FiltrDokumentyWystawioneDzisiaj}" Style="{StaticResource chbNormal}"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <TextBox Style="{StaticResource tbLarge}" Text="{Binding SzukanaFrazaPracownik, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Image Style="{StaticResource imgButtonNormal}" Source="/Opportunity;component/Model/Images/search.png" />
+                        </StackPanel>
+                    </DockPanel>
+                    <ScrollViewer Grid.Column="1" Grid.Row="1" VerticalScrollBarVisibility="Auto" >
+                        <DataGrid ScrollViewer.CanContentScroll="True" ItemsSource="{Binding PracownicyFiltr}" SelectedItem="{Binding PracownikWybrany, Mode=TwoWay}" SelectionUnit="FullRow"  Style="{StaticResource dgNormal}" Background="Transparent" RowBackground="Transparent">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Numer}" Header="Numer" Width="2*" IsReadOnly="True" />
+                                <DataGridTextColumn Binding="{Binding DanePersonalne}" Header="Pracownik" Width="3*" IsReadOnly="True" />
+                                <DataGridCheckBoxColumn Binding="{Binding Brygadzista}" Header="Brygadzista" Width="1*" IsReadOnly="True" />
+                                <DataGridTextColumn Binding="{Binding Wiek}" Header="Wiek" Width="1*" IsReadOnly="True"/>
+                                <DataGridTextColumn Binding="{Binding WizaAktualna.DataWaznosci, StringFormat=yyyy-MM-dd}" Header="Wiza" Width="1*" IsReadOnly="True" />
+                                <DataGridTextColumn Binding="{Binding BadanieAktualne.DataWaznosci, StringFormat=yyyy-MM-dd}" Header="Badanie" Width="1*" IsReadOnly="True" />
+                                <DataGridTextColumn Binding="{Binding ZameldowanieAktualne.Numer, StringFormat=yyyy-MM-dd}" Header="Zameldowanie" Width="1*" IsReadOnly="True" />
+                                <DataGridTextColumn Binding="{Binding ZezwolenieAktualne.DataWaznosci, StringFormat=yyyy-MM-dd}" Header="Zezwolenie" Width="1*" IsReadOnly="True" />
+                                <DataGridTextColumn Binding="{Binding BHPAktualne.DataWaznosci, StringFormat=yyyy-MM-dd}" Header="Szkolenie" Width="1*" IsReadOnly="True" />
+                                <DataGridTextColumn Binding="{Binding ZatrudnienieAktualne.DataWaznosci, StringFormat=yyyy-MM-dd}" Header="Zatrudnienie" Width="1*" IsReadOnly="True" />
+                            </DataGrid.Columns>
+                            <DataGrid.RowDetailsTemplate>
+                                <DataTemplate>
+                                    <TabControl >
+                                        <TabItem Header="Dane" >
+                                            <DockPanel>
+                                                <TextBlock Text="Numer:" Style="{StaticResource txtSmall}" />
+                                                <TextBox Text="{Binding Numer, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Style="{StaticResource tbNormal}" />
+                                                <TextBlock Text="Nazwisko:" Style="{StaticResource txtSmall}" />
+                                                <TextBox Text="{Binding Nazwisko, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Style="{StaticResource tbNormal}" />
+                                                <TextBlock Text="Imię:" Style="{StaticResource txtSmall}" />
+                                                <TextBox Text="{Binding Imie, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Style="{StaticResource tbNormal}" />
+                                                <TextBlock Text="Urodzona/y" Style="{StaticResource txtSmall}" />
+                                                <DatePicker SelectedDate="{Binding DataUrodzenia, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Style="{StaticResource dpNormal}" />
+                                                <Button Style="{StaticResource btnSmall}" Visibility="{Binding Brygadzista, Converter={StaticResource BoolOppositeToVisibilityConverter}}">
+                                                    <ie:Interaction.Behaviors>
+                                                        <local:PasswordEdycjaOpen EdycjaPracownika="True" NowyUzytkownik="True"/>
+                                                    </ie:Interaction.Behaviors>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Image Style="{StaticResource imgButtonSmall}" Source="/Opportunity;component/Model/Images/arrow_up.png"/>
+                                                        <TextBlock Text="Brygadzista" Style="{StaticResource txtButtonSmall}" />
+                                                    </StackPanel>
+                                                </Button>
+                                                <TextBlock Text="Brygadzista" Style="{StaticResource txtSmall}" Visibility="{Binding Brygadzista, Converter={StaticResource BoolToVisibilityConverter}}" />
+                                                <Button Style="{StaticResource btnSmall}" HorizontalAlignment="Right" Command="{Binding ZapiszDanePracownikaCommand}" >
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Image Source="/Opportunity;component/Model/Images/disk.png" />
+                                                        <TextBlock Text="Zapisz" Style="{StaticResource txtSmall}" />
+                                                    </StackPanel>
+                                                </Button>
+                                            </DockPanel>
+                                        </TabItem>
+                                        <TabItem Header="Nowy Dokument" >
+                                            <DockPanel  >
+                                                <TextBlock Text="Typ:" Style="{StaticResource txtSmall}"/>
+                                                <ComboBox x:Name="cbNowyDokumentTyp" Grid.Column="1" Grid.Row="0" Style="{StaticResource cbSmall}" ItemsSource="{Binding ListaTypowDokumentow}" SelectedItem="{Binding WybranyTypDokumentu, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                                    <ie:Interaction.Triggers>
+                                                        <ie:EventTrigger EventName="Selected" >
+                                                            <ie:InvokeCommandAction Command="{Binding NowyDokumentCommand}"  />
+                                                        </ie:EventTrigger>
+                                                    </ie:Interaction.Triggers>
+                                                </ComboBox>
+                                                <TextBlock Text="Numer:" Style="{StaticResource txtSmall}"/>
+                                                <TextBox x:Name="txtNowyDokNumer" Text="{Binding NowyDokument.Numer, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Style="{StaticResource tbNormal}" />
+                                                <TextBlock Text="Data wystawienia" Style="{StaticResource txtSmall}"/>
+                                                <DatePicker x:Name="dpNowyDokDataWyst" SelectedDate="{Binding NowyDokument.DataWystawienia, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource dpNormal}" />
+                                                <TextBlock Text="Data ważności" Style="{StaticResource txtSmall}"/>
+                                                <DatePicker x:Name="dpNowyDokDataWazn" SelectedDate="{Binding NowyDokument.DataWaznosci, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource dpNormal}" />
+                                                <TextBlock Text="Uwagi" Style="{StaticResource txtSmall}"/>
+                                                <TextBox x:Name="txtNowyDokUwagi" Text="{Binding NowyDokument.Uwagi, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Style="{StaticResource tbNormal}" />
+                                                <Button Style="{StaticResource btnSmall}" HorizontalAlignment="Right" Command="{Binding DodajDokumentCommand}">
+                                                    <ie:Interaction.Triggers>
+                                                        <ie:EventTrigger EventName="Click">
+                                                            <i:ChangePropertyAction TargetObject="{Binding ElementName=cbNowyDokumentTyp}" PropertyName="SelectedIndex" Value="-1" />
+                                                        </ie:EventTrigger>
+                                                    </ie:Interaction.Triggers>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Image Source="/Opportunity;component/Model/Images/add.png" />
+                                                        <TextBlock Text="Dodaj" Style="{StaticResource txtSmall}" />
+                                                    </StackPanel>
+                                                </Button>
+                                            </DockPanel>
+                                        </TabItem>
+                                        <TabItem Header="Lista dokumentów">
+                                            <ListView ItemsSource="{Binding ListaDokumentow}" >
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <DockPanel Background="AliceBlue" HorizontalAlignment="Stretch">
+                                                            <TextBlock Text="{Binding Typ}" Style="{StaticResource txtNormalBold}" Width="100"/>
+                                                            <TextBlock Text="Numer:" Style="{StaticResource txtSmall}"/>
+                                                            <TextBox Text="{Binding Numer, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Style="{StaticResource tbNormal}" />
+                                                            <TextBlock Text="Data wystawienia" Style="{StaticResource txtSmall}"/>
+                                                            <DatePicker SelectedDate="{Binding DataWystawienia, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource dpNormal}" />
+                                                            <TextBlock Text="Data ważności" Style="{StaticResource txtSmall}"/>
+                                                            <DatePicker SelectedDate="{Binding DataWaznosci, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource dpNormal}" />
+                                                            <TextBlock Text="Uwagi" Style="{StaticResource txtSmall}"/>
+                                                            <TextBox Text="{Binding Uwagi, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Style="{StaticResource tbNormal}" />
+                                                            <Button Style="{StaticResource btnSmall}" HorizontalAlignment="Right"
+                                                                    Command="{Binding DataContext.UsunDokumentCommand, RelativeSource={RelativeSource FindAncestor, AncestorType=ListView}}" 
+                                                                    CommandParameter="{Binding}">
+                                                                <Image Source="/Opportunity;component/Model/Images/bin.png" />
+                                                            </Button>
+                                                            <Button Style="{StaticResource btnSmall}" HorizontalAlignment="Right"
+                                                                    Command="{Binding DataContext.ZapiszDokumentCommand, RelativeSource={RelativeSource FindAncestor, AncestorType=ListView}}" 
+                                                                    CommandParameter="{Binding}">
+                                                                <Image Source="/Opportunity;component/Model/Images/disk.png" />
+                                                            </Button>
+                                                        </DockPanel>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ListView>
+                                        </TabItem>
+                                    </TabControl>
+                                </DataTemplate>
+                            </DataGrid.RowDetailsTemplate>
+                        </DataGrid>
+                    </ScrollViewer>
+                    <Border Grid.Row="1" BorderBrush="LightGray" Margin="3" BorderThickness="1" UseLayoutRounding="True" Grid.Column="0">
+                        <ListView ItemsSource="{Binding ListaFiltrow}" >
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border BorderBrush="LightGray" Margin="3" BorderThickness="1" UseLayoutRounding="True" >
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                            </Grid.RowDefinitions>
+                                            <CheckBox Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" IsChecked="{Binding Aktywny}" Style="{StaticResource chbNormalBold}" Command="{Binding DataContext.FiltrAktywnyCommand, RelativeSource={RelativeSource FindAncestor, AncestorType=ListView}}" >
+                                                <TextBlock Text="{Binding Nazwa}" />
+                                            </CheckBox>
+                                            <CheckBox Grid.Column="3" Grid.Row="0" IsChecked="{Binding Brak}" Style="{StaticResource chbNormal}" VerticalAlignment="Center" Command="{Binding DataContext.FiltrAktywnyCommand, RelativeSource={RelativeSource FindAncestor, AncestorType=ListView}}">
+                                                <TextBlock Text="Bez dokumentów" FontSize="10" VerticalAlignment="Center" />
+                                            </CheckBox>
+                                            <TextBlock Grid.Column="2" Grid.Row="2" Text="Numer: " Style="{StaticResource txtSmall}" />
+                                            <TextBox Grid.Column="3" Grid.Row="2" Text="{Binding Numer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource tbNormal}">
+                                                <ie:Interaction.Triggers>
+                                                    <ie:EventTrigger EventName="TextChanged" >
+                                                        <ie:InvokeCommandAction Command="{Binding DataContext.FiltrAktywnyCommand, RelativeSource={RelativeSource FindAncestor, AncestorType=ListView}}" />
+                                                    </ie:EventTrigger>
+                                                </ie:Interaction.Triggers>
+                                            </TextBox>
+                                            <TextBlock Grid.Column="0" Grid.Row="1" Text="Data ważności min: " Style="{StaticResource txtSmall}" />
+                                            <DatePicker Grid.Column="1" Grid.Row="1" SelectedDate="{Binding DataWaznosciMin}" Style="{StaticResource dpNormal}" >
+                                                <ie:Interaction.Triggers>
+                                                    <ie:EventTrigger EventName="SelectedDateChanged" >
+                                                        <ie:InvokeCommandAction Command="{Binding DataContext.FiltrAktywnyCommand, RelativeSource={RelativeSource FindAncestor, AncestorType=ListView}}" />
+                                                    </ie:EventTrigger>
+                                                </ie:Interaction.Triggers>
+                                            </DatePicker>
+                                            <TextBlock Grid.Column="2" Grid.Row="1" Text="max: " Style="{StaticResource txtSmall}" />
+                                            <DatePicker Grid.Column="3" Grid.Row="1" SelectedDate="{Binding DataWaznosciMax}" Style="{StaticResource dpNormal}" >
+                                                <ie:Interaction.Triggers>
+                                                    <ie:EventTrigger EventName="SelectedDateChanged" >
+                                                        <ie:InvokeCommandAction Command="{Binding DataContext.FiltrAktywnyCommand, RelativeSource={RelativeSource FindAncestor, AncestorType=ListView}}" />
+                                                    </ie:EventTrigger>
+                                                </ie:Interaction.Triggers>
+                                            </DatePicker>
+                                            <CheckBox Grid.Column="0" Grid.Row="2" Content="Wygasły" Style="{StaticResource chbSmall}" IsChecked="{Binding Wygasly}" Command="{Binding DataContext.FiltrAktywnyCommand, RelativeSource={RelativeSource FindAncestor, AncestorType=ListView}}"/>
+                                            <CheckBox Grid.Column="1" Grid.Row="2" Content="Brak daty" Style="{StaticResource chbSmall}" IsChecked="{Binding BrakDaty}" Command="{Binding DataContext.FiltrAktywnyCommand, RelativeSource={RelativeSource FindAncestor, AncestorType=ListView}}">
+                                            </CheckBox>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ListView>
+                    </Border>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Ustawienia" Style="{StaticResource tiDuzaCzcionka}">
+                <TabControl>
+                    <TabItem Header="Słowniki" >
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition  />
+                            </Grid.RowDefinitions>
+                            <!-- Slownik typów -->
+                            <DockPanel Grid.Column="0" Grid.Row="0">
+                                <TextBlock  Text="Typ towarów: " Style="{StaticResource txtNormal}"/>
+                                <TextBox x:Name="tbNowyTypTowaru" Style="{StaticResource tbLarge}" Text="{Binding NowyTypTowaru.Nazwa, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"/>
+                                <Button x:Name="btnNowyTypTowaruZapisz" Style="{StaticResource btnNormal}" Command="{Binding DodajNowyTypTowaruCommand}" >
+                                    <StackPanel Orientation="Horizontal" >
+                                        <Image Source="/Opportunity;component/Model/Images/add.png" Style="{StaticResource imgButtonNormal}"/>
+                                        <TextBlock Text="Dodaj" Style="{StaticResource txtButtonNormal}" />
+                                    </StackPanel>
+                                </Button>
+                                <Button x:Name="btnNowyTypTowaruUsun" Style="{StaticResource btnSmall}" Command="{Binding UsunTypTowaruCommand}" CommandParameter="{Binding ElementName=lvListaTypowTowarow, Path=SelectedItem}" >
+                                    <StackPanel Orientation="Horizontal" >
+                                        <Image Source="/Opportunity;component/Model/Images/bin.png" />
+                                    </StackPanel>
+                                </Button>
+                            </DockPanel>
+                            <ScrollViewer Grid.Column="0" Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                                <ListView x:Name="lvListaTypowTowarow" ItemsSource="{Binding ListaTypowTowarow}" SelectionMode="Single" HorizontalAlignment="Stretch">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <DockPanel HorizontalAlignment="Stretch">
+                                                <TextBox Text="{Binding Nazwa, Mode=TwoWay}" Style="{StaticResource tbNormal}" />
+                                                <Button Style="{StaticResource btnSmall}" Command="{Binding TypModeluZapiszCommand}" HorizontalAlignment="Right">
+                                                    <Image Source="/Opportunity;component/Model/Images/disk.png" Style="{StaticResource imgButtonSmall}"/>
+                                                </Button>
+                                            </DockPanel>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </ScrollViewer>
+                            <!-- Slownik marek -->                            
+                            <DockPanel Grid.Column="2" Grid.Row="0">
+                                <TextBlock  Text="Marka towarów: " Style="{StaticResource txtNormal}"/>
+                                <TextBox x:Name="tbNowaMarkaTowaru" Style="{StaticResource tbLarge}" Text="{Binding NowaMarkaTowaru.Nazwa, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"/>
+                                <Button x:Name="btnNowaMarkaTowaruZapisz" Style="{StaticResource btnNormal}" Command="{Binding DodajNowaMarkeTowaruCommand}" >
+                                    <StackPanel Orientation="Horizontal" >
+                                        <Image Source="/Opportunity;component/Model/Images/add.png" Style="{StaticResource imgButtonNormal}"/>
+                                        <TextBlock Text="Dodaj" Style="{StaticResource txtButtonNormal}" />
+                                    </StackPanel>
+                                </Button>
+                                <Button x:Name="btnNowaMarkaTowaruUsun" Style="{StaticResource btnSmall}" Command="{Binding UsunMarkeTowaruCommand}" CommandParameter="{Binding ElementName=lvListaMarekTowarow, Path=SelectedItem}" >
+                                    <StackPanel Orientation="Horizontal" >
+                                        <Image Source="/Opportunity;component/Model/Images/bin.png" />
+                                    </StackPanel>
+                                </Button>
+                            </DockPanel>
+                            <ScrollViewer Grid.Column="2" Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                                <ListView x:Name="lvListaMarekTowarow" ItemsSource="{Binding ListaMarekTowarow}" SelectionMode="Single" HorizontalAlignment="Stretch">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <DockPanel HorizontalAlignment="Stretch">
+                                                <TextBox Text="{Binding Nazwa, Mode=TwoWay}" Style="{StaticResource tbNormal}" />
+                                                <Button Style="{StaticResource btnSmall}" Command="{Binding MarkaTowaruZapiszCommand}" HorizontalAlignment="Right">
+                                                    <Image Source="/Opportunity;component/Model/Images/disk.png" Style="{StaticResource imgButtonSmall}"/>
+                                                </Button>
+                                            </DockPanel>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </ScrollViewer>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Konto">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Button x:Name="btnZmianaHasla" Grid.Column="0" Grid.Row="0" Style="{StaticResource btnNormal}" >
+                                <ie:Interaction.Behaviors>
+                                    <local:PasswordEdycjaOpen NowyUzytkownik="False" />
+                                </ie:Interaction.Behaviors>
+                                <StackPanel Orientation="Horizontal" >
+                                    <Image Source="/Opportunity;component/Model/Images/add.png" Style="{StaticResource imgButtonSmall}"/>
+                                    <TextBlock Text="Zmień hasło" Style="{StaticResource txtButtonSmall}" />
+                                </StackPanel>
+                            </Button>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="FTP">
+                        <Border BorderThickness="1" BorderBrush="Gray" >
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Column="0" Grid.Row="0" Text="Ftp ścieżka" Style="{StaticResource txtNormal}" />
+                                <TextBlock Grid.Column="0" Grid.Row="1" Text="Ftp użytkownik" Style="{StaticResource txtNormal}"/>
+                                <TextBlock Grid.Column="0" Grid.Row="2" Text="Ftp hasło" Style="{StaticResource txtNormal}"/>
+                                <TextBox Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Text="{Binding FtpPath}" Style="{StaticResource tbLarge}" />
+                                <TextBox Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding FtpUser}" Style="{StaticResource tbLarge}" />
+                                <TextBox Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Text="{Binding FtpPassword}" Style="{StaticResource tbLarge}" />
+                                <Button Grid.Column="2" Grid.Row="3" Command="{Binding ZapiszUstawieniaCommand}" Style="{StaticResource btnNormal}" Width="100" HorizontalAlignment="Right">
+                                    <StackPanel Orientation="Horizontal" >
+                                        <Image Source="/Opportunity;component/Model/Images/disk.png" />
+                                        <TextBlock Text="Zapisz" Style="{StaticResource txtButtonNormal}" />
+                                    </StackPanel>
+                                </Button>
+                            </Grid>
+                        </Border>
+                    </TabItem>
+                </TabControl>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

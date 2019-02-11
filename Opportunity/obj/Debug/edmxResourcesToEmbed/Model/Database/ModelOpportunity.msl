@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OpportunityModelStoreContainer" CdmEntityContainer="OpportunityEntities">
+    <EntitySetMapping Name="Badania">
+      <EntityTypeMapping TypeName="OpportunityModel.Badania">
+        <MappingFragment StoreEntitySet="Badania">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="numer" ColumnName="numer" />
+          <ScalarProperty Name="id_pracownika" ColumnName="id_pracownika" />
+          <ScalarProperty Name="data_wydania" ColumnName="data_wydania" />
+          <ScalarProperty Name="data_waznosci" ColumnName="data_waznosci" />
+          <ScalarProperty Name="uwagi" ColumnName="uwagi" />
+          <ScalarProperty Name="path" ColumnName="path" />
+          <ScalarProperty Name="uzytkownik" ColumnName="uzytkownik" />
+          <ScalarProperty Name="last_update" ColumnName="last_update" />
+          <ScalarProperty Name="nieaktywne" ColumnName="nieaktywne" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Oswiadczenia">
+      <EntityTypeMapping TypeName="OpportunityModel.Oswiadczenia">
+        <MappingFragment StoreEntitySet="Oswiadczenia">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="numer" ColumnName="numer" />
+          <ScalarProperty Name="id_pracownika" ColumnName="id_pracownika" />
+          <ScalarProperty Name="data_wydania" ColumnName="data_wydania" />
+          <ScalarProperty Name="data_waznosci" ColumnName="data_waznosci" />
+          <ScalarProperty Name="uwagi" ColumnName="uwagi" />
+          <ScalarProperty Name="path" ColumnName="path" />
+          <ScalarProperty Name="uzytkownik" ColumnName="uzytkownik" />
+          <ScalarProperty Name="last_update" ColumnName="last_update" />
+          <ScalarProperty Name="nieaktywne" ColumnName="nieaktywne" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Paszporty">
+      <EntityTypeMapping TypeName="OpportunityModel.Paszporty">
+        <MappingFragment StoreEntitySet="Paszporty">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="numer" ColumnName="numer" />
+          <ScalarProperty Name="id_pracownika" ColumnName="id_pracownika" />
+          <ScalarProperty Name="data_wydania" ColumnName="data_wydania" />
+          <ScalarProperty Name="data_waznosci" ColumnName="data_waznosci" />
+          <ScalarProperty Name="biometryczny" ColumnName="biometryczny" />
+          <ScalarProperty Name="uwagi" ColumnName="uwagi" />
+          <ScalarProperty Name="path" ColumnName="path" />
+          <ScalarProperty Name="uzytkownik" ColumnName="uzytkownik" />
+          <ScalarProperty Name="last_update" ColumnName="last_update" />
+          <ScalarProperty Name="nieaktywny" ColumnName="nieaktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Potwierdzenia">
+      <EntityTypeMapping TypeName="OpportunityModel.Potwierdzenia">
+        <MappingFragment StoreEntitySet="Potwierdzenia">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_wydania" ColumnName="id_wydania" />
+          <ScalarProperty Name="id_pracownika" ColumnName="id_pracownika" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="uwagi" ColumnName="uwagi" />
+          <ScalarProperty Name="uzytkownik" ColumnName="uzytkownik" />
+          <ScalarProperty Name="last_update" ColumnName="last_update" />
+          <ScalarProperty Name="nieaktywne" ColumnName="nieaktywne" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pracownicy">
+      <EntityTypeMapping TypeName="OpportunityModel.Pracownicy">
+        <MappingFragment StoreEntitySet="Pracownicy">
+          <ScalarProperty Name="passwordhash" ColumnName="passwordhash" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="numer" ColumnName="numer" />
+          <ScalarProperty Name="imie" ColumnName="imie" />
+          <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+          <ScalarProperty Name="data_urodzenia" ColumnName="data_urodzenia" />
+          <ScalarProperty Name="brygadzista" ColumnName="brygadzista" />
+          <ScalarProperty Name="admin" ColumnName="admin" />
+          <ScalarProperty Name="id_nadrzednego" ColumnName="id_nadrzednego" />
+          <ScalarProperty Name="uwagi" ColumnName="uwagi" />
+          <ScalarProperty Name="uzytkownik" ColumnName="uzytkownik" />
+          <ScalarProperty Name="last_update" ColumnName="last_update" />
+          <ScalarProperty Name="nieaktywny" ColumnName="nieaktywny" />
+          <ScalarProperty Name="login" ColumnName="login" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Przyjecia">
+      <EntityTypeMapping TypeName="OpportunityModel.Przyjecia">
+        <MappingFragment StoreEntitySet="Przyjecia">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_towaru" ColumnName="id_towaru" />
+          <ScalarProperty Name="ilosc" ColumnName="ilosc" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="numer_faktury" ColumnName="numer_faktury" />
+          <ScalarProperty Name="path" ColumnName="path" />
+          <ScalarProperty Name="uwagi" ColumnName="uwagi" />
+          <ScalarProperty Name="uzytkownik" ColumnName="uzytkownik" />
+          <ScalarProperty Name="last_update" ColumnName="last_update" />
+          <ScalarProperty Name="nieaktywne" ColumnName="nieaktywne" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Slownik_typy_towarow">
+      <EntityTypeMapping TypeName="OpportunityModel.Slownik_typy_towarow">
+        <MappingFragment StoreEntitySet="Slownik_typy_towarow">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+          <ScalarProperty Name="uwagi" ColumnName="uwagi" />
+          <ScalarProperty Name="uzytkownik" ColumnName="uzytkownik" />
+          <ScalarProperty Name="last_update" ColumnName="last_update" />
+          <ScalarProperty Name="nieaktywna" ColumnName="nieaktywna" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SzkoleniaBHP">
+      <EntityTypeMapping TypeName="OpportunityModel.SzkoleniaBHP">
+        <MappingFragment StoreEntitySet="SzkoleniaBHP">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="numer" ColumnName="numer" />
+          <ScalarProperty Name="id_pracownika" ColumnName="id_pracownika" />
+          <ScalarProperty Name="data_wystawienia" ColumnName="data_wystawienia" />
+          <ScalarProperty Name="data_waznosci" ColumnName="data_waznosci" />
+          <ScalarProperty Name="uwagi" ColumnName="uwagi" />
+          <ScalarProperty Name="path" ColumnName="path" />
+          <ScalarProperty Name="uzytkownik" ColumnName="uzytkownik" />
+          <ScalarProperty Name="last_update" ColumnName="last_update" />
+          <ScalarProperty Name="nieaktywne" ColumnName="nieaktywne" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Towary">
+      <EntityTypeMapping TypeName="OpportunityModel.Towary">
+        <MappingFragment StoreEntitySet="Towary">
+          <ScalarProperty Name="id_marki" ColumnName="id_marki" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_typu" ColumnName="id_typu" />
+          <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+          <ScalarProperty Name="marka" ColumnName="marka" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="ean" ColumnName="ean" />
+          <ScalarProperty Name="path_zdjecie" ColumnName="path_zdjecie" />
+          <ScalarProperty Name="path_gwarancja" ColumnName="path_gwarancja" />
+          <ScalarProperty Name="premium" ColumnName="premium" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="uwagi" ColumnName="uwagi" />
+          <ScalarProperty Name="uzytkownik" ColumnName="uzytkownik" />
+          <ScalarProperty Name="last_update" ColumnName="last_update" />
+          <ScalarProperty Name="nieaktywny" ColumnName="nieaktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Wizy">
+      <EntityTypeMapping TypeName="OpportunityModel.Wizy">
+        <MappingFragment StoreEntitySet="Wizy">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="numer" ColumnName="numer" />
+          <ScalarProperty Name="id_pracownika" ColumnName="id_pracownika" />
+          <ScalarProperty Name="data_wystawienia" ColumnName="data_wystawienia" />
+          <ScalarProperty Name="data_waznosci" ColumnName="data_waznosci" />
+          <ScalarProperty Name="uwagi" ColumnName="uwagi" />
+          <ScalarProperty Name="path" ColumnName="path" />
+          <ScalarProperty Name="uzytkownik" ColumnName="uzytkownik" />
+          <ScalarProperty Name="last_update" ColumnName="last_update" />
+          <ScalarProperty Name="nieaktywna" ColumnName="nieaktywna" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Wycofania">
+      <EntityTypeMapping TypeName="OpportunityModel.Wycofania">
+        <MappingFragment StoreEntitySet="Wycofania">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_towaru" ColumnName="id_towaru" />
+          <ScalarProperty Name="ilosc" ColumnName="ilosc" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="path" ColumnName="path" />
+          <ScalarProperty Name="uwagi" ColumnName="uwagi" />
+          <ScalarProperty Name="uzytkownik" ColumnName="uzytkownik" />
+          <ScalarProperty Name="last_update" ColumnName="last_update" />
+          <ScalarProperty Name="nieaktywne" ColumnName="nieaktywne" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Wydania">
+      <EntityTypeMapping TypeName="OpportunityModel.Wydania">
+        <MappingFragment StoreEntitySet="Wydania">
+          <ScalarProperty Name="wykonano" ColumnName="wykonano" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_wydajacego" ColumnName="id_wydajacego" />
+          <ScalarProperty Name="id_przyjmujacego" ColumnName="id_przyjmujacego" />
+          <ScalarProperty Name="id_towaru" ColumnName="id_towaru" />
+          <ScalarProperty Name="ilosc" ColumnName="ilosc" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="uwagi" ColumnName="uwagi" />
+          <ScalarProperty Name="uzytkownik" ColumnName="uzytkownik" />
+          <ScalarProperty Name="last_update" ColumnName="last_update" />
+          <ScalarProperty Name="nieaktywne" ColumnName="nieaktywne" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Zaproszenia">
+      <EntityTypeMapping TypeName="OpportunityModel.Zaproszenia">
+        <MappingFragment StoreEntitySet="Zaproszenia">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="numer" ColumnName="numer" />
+          <ScalarProperty Name="id_pracownika" ColumnName="id_pracownika" />
+          <ScalarProperty Name="data_wystawienia" ColumnName="data_wystawienia" />
+          <ScalarProperty Name="data_waznosci_od" ColumnName="data_waznosci_od" />
+          <ScalarProperty Name="data_waznosci" ColumnName="data_waznosci" />
+          <ScalarProperty Name="zapraszajacy" ColumnName="zapraszajacy" />
+          <ScalarProperty Name="odebrane" ColumnName="odebrane" />
+          <ScalarProperty Name="oplacone" ColumnName="oplacone" />
+          <ScalarProperty Name="uwagi" ColumnName="uwagi" />
+          <ScalarProperty Name="path" ColumnName="path" />
+          <ScalarProperty Name="uzytkownik" ColumnName="uzytkownik" />
+          <ScalarProperty Name="last_update" ColumnName="last_update" />
+          <ScalarProperty Name="nieaktywne" ColumnName="nieaktywne" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Zezwolenia">
+      <EntityTypeMapping TypeName="OpportunityModel.Zezwolenia">
+        <MappingFragment StoreEntitySet="Zezwolenia">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="numer" ColumnName="numer" />
+          <ScalarProperty Name="id_pracownika" ColumnName="id_pracownika" />
+          <ScalarProperty Name="data_wystawienia" ColumnName="data_wystawienia" />
+          <ScalarProperty Name="data_waznosci_od" ColumnName="data_waznosci_od" />
+          <ScalarProperty Name="data_waznosci" ColumnName="data_waznosci" />
+          <ScalarProperty Name="uwagi" ColumnName="uwagi" />
+          <ScalarProperty Name="path" ColumnName="path" />
+          <ScalarProperty Name="uzytkownik" ColumnName="uzytkownik" />
+          <ScalarProperty Name="last_update" ColumnName="last_update" />
+          <ScalarProperty Name="nieaktywne" ColumnName="nieaktywne" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_wydania">
+      <EntityTypeMapping TypeName="OpportunityModel.v_wydania">
+        <MappingFragment StoreEntitySet="v_wydania">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+          <ScalarProperty Name="id_towaru" ColumnName="id_towaru" />
+          <ScalarProperty Name="nazwa_towaru" ColumnName="nazwa_towaru" />
+          <ScalarProperty Name="id_wydajacego" ColumnName="id_wydajacego" />
+          <ScalarProperty Name="wydajacy" ColumnName="wydajacy" />
+          <ScalarProperty Name="id_przyjmujacego" ColumnName="id_przyjmujacego" />
+          <ScalarProperty Name="przyjmujacy" ColumnName="przyjmujacy" />
+          <ScalarProperty Name="data_potwierdzenia_przyjecia" ColumnName="data_potwierdzenia_przyjecia" />
+          <ScalarProperty Name="data_potwierdzenia_wydania" ColumnName="data_potwierdzenia_wydania" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Slownik_marki">
+      <EntityTypeMapping TypeName="OpportunityModel.Slownik_marki">
+        <MappingFragment StoreEntitySet="Slownik_marki">
+          <ScalarProperty Name="nieaktywna" ColumnName="nieaktywna" />
+          <ScalarProperty Name="last_update" ColumnName="last_update" />
+          <ScalarProperty Name="uzytkownik" ColumnName="uzytkownik" />
+          <ScalarProperty Name="uwagi" ColumnName="uwagi" />
+          <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Zatrudnienia">
+      <EntityTypeMapping TypeName="OpportunityModel.Zatrudnienia">
+        <MappingFragment StoreEntitySet="Zatrudnienia">
+          <ScalarProperty Name="nieaktywne" ColumnName="nieaktywne" />
+          <ScalarProperty Name="last_update" ColumnName="last_update" />
+          <ScalarProperty Name="uzytkownik" ColumnName="uzytkownik" />
+          <ScalarProperty Name="path" ColumnName="path" />
+          <ScalarProperty Name="uwagi" ColumnName="uwagi" />
+          <ScalarProperty Name="data_waznosci_do" ColumnName="data_waznosci_do" />
+          <ScalarProperty Name="data_waznosci_od" ColumnName="data_waznosci_od" />
+          <ScalarProperty Name="id_pracownika" ColumnName="id_pracownika" />
+          <ScalarProperty Name="numer" ColumnName="numer" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5aad9404f8cc4fc28fd296735daa4040" Name="Diagram1">
+        <EntityTypeShape EntityType="OpportunityModel.Badania" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpportunityModel.Oswiadczenia" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpportunityModel.Paszporty" Width="1.5" PointX="3" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpportunityModel.Potwierdzenia" Width="1.5" PointX="8.25" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpportunityModel.Pracownicy" Width="1.5" PointX="0.75" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpportunityModel.Przyjecia" Width="1.5" PointX="6" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpportunityModel.Slownik_typy_towarow" Width="1.5" PointX="1.5" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpportunityModel.SzkoleniaBHP" Width="1.5" PointX="3" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpportunityModel.Towary" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpportunityModel.Wizy" Width="1.5" PointX="3" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpportunityModel.Wycofania" Width="1.5" PointX="6" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpportunityModel.Wydania" Width="1.5" PointX="6" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpportunityModel.Zaproszenia" Width="1.5" PointX="3" PointY="30.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpportunityModel.Zezwolenia" Width="1.5" PointX="3" PointY="34.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpportunityModel.v_wydania" Width="1.5" PointX="5.75" PointY="2.25" IsExpanded="true" />
+        <AssociationConnector Association="OpportunityModel.FK_Badania_Pracownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="OpportunityModel.FK_Oswiadczenia_Pracownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="OpportunityModel.FK_Paszporty_Pracownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="OpportunityModel.FK_Potwierdzenia_Wydania" ManuallyRouted="false" />
+        <AssociationConnector Association="OpportunityModel.FK_SzkoleniaBHP_Pracownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="OpportunityModel.FK_Wizy_Pracownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="OpportunityModel.FK_Wydania_Pracownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="OpportunityModel.FK_Wydania_Pracownicy1" ManuallyRouted="false" />
+        <AssociationConnector Association="OpportunityModel.FK_Zaproszenia_Pracownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="OpportunityModel.FK_Zezwolenia_Pracownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="OpportunityModel.FK_Przyjecia_Towary" ManuallyRouted="false" />
+        <AssociationConnector Association="OpportunityModel.FK_Towary_Slownik_typy_towarow" ManuallyRouted="false" />
+        <AssociationConnector Association="OpportunityModel.FK_Wycofania_Towary" ManuallyRouted="false" />
+        <AssociationConnector Association="OpportunityModel.FK_Wydania_Towary" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="OpportunityModel.Slownik_marki" Width="1.5" PointX="1.5" PointY="0.75" />
+        <AssociationConnector Association="OpportunityModel.FK_Towary_Slownik_marki" />
+        <EntityTypeShape EntityType="OpportunityModel.Zatrudnienia" Width="1.5" PointX="8.375" PointY="0.75" />
+        <AssociationConnector Association="OpportunityModel.FK_Zatrudnienia_Pracownicy" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

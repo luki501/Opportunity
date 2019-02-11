@@ -1,0 +1,220 @@
+﻿<Window x:Class="Opportunity.View.TowarPremiumEdycjaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Opportunity.View"
+        mc:Ignorable="d"
+        xmlns:ie="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactions"
+        DataContext="{Binding Source={StaticResource Locator}, Path=TowarEdycja}"
+        Title="Dodaj towar" Height="400" Width="400">
+    <Window.Resources>
+        <local:MultiBindingConverter x:Key="MultiBindingConverter" />
+        <local:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <local:BoolOppositeToVisibilityConverter x:Key="BoolOppositeToVisibilityConverter" />
+        <Style x:Key="tbNormal" TargetType="TextBox">
+            <Setter Property="Margin" Value="3" />
+        </Style>
+        <Style x:Key="txtNormal" TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+        <Style x:Key="btnNormal" TargetType="Button">
+            <Setter Property="MinWidth" Value="80" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="Background" Value="#cebbad" />
+        </Style>
+        <Style x:Key="btnSmall" TargetType="Button">
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="Margin" Value="3" />
+            <Setter Property="Height" Value="24" />
+            <Setter Property="Background" Value="#cebbad" />
+            <Setter Property="MaxWidth" Value="100" />
+        </Style>
+        <Style x:Key="chbNormal" TargetType="CheckBox" >
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="3" />
+        </Style>
+        <Style x:Key="dpNormal" TargetType="DatePicker" >
+            <Setter Property="Height" Value="20" />
+            <Setter Property="Margin" Value="3" />
+            <Setter Property="FontSize" Value="10" />
+        </Style>
+        <Style x:Key="cbNormal" TargetType="ComboBox" >
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="3" />
+            <Setter Property="Height" Value="24" />
+            <Setter Property="Background" Value="#cebbad" />
+        </Style>
+        <Style x:Key="imgButtonNormal" TargetType="Image">
+            <Setter Property="Width" Value="20" />
+            <Setter Property="Height" Value="20" />
+            <Setter Property="Margin" Value="3" />
+        </Style>
+        <Style x:Key="imgButtonSmall" TargetType="Image">
+            <Setter Property="Width" Value="16" />
+            <Setter Property="Height" Value="16" />
+            <Setter Property="Margin" Value="2" />
+        </Style>
+        <Style x:Key="txtButtonNormal" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="2" />
+        </Style>
+        <Style x:Key="txtButtonSmall" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="10" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="2" />
+        </Style>
+    </Window.Resources>
+    <ie:Interaction.Behaviors>
+        <local:ZamykanieOkna />
+    </ie:Interaction.Behaviors>
+    <TabControl x:Name="tabTowar">
+        <TabControl.Style>
+            <Style TargetType="TabControl">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding IsTowarZapisany}" Value="True" >
+                        <Setter Property="SelectedIndex" Value="1" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </TabControl.Style>
+        <TabItem Header="Dane">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Typ" Grid.Row="0" Style="{StaticResource txtNormal}" />
+                <TextBlock Text="Marka" Grid.Row="1" Style="{StaticResource txtNormal}" />
+                <TextBlock Text="Model" Grid.Row="2" Style="{StaticResource txtNormal}"  />
+                <TextBlock Text="EAN" Grid.Row="3" Style="{StaticResource txtNormal}" />
+                <TextBlock Text="Uwagi" Grid.Row="4" Style="{StaticResource txtNormal}" />
+                <ComboBox Grid.Column="1" Grid.Row="0" ItemsSource="{Binding ListaTypowTowarow}" Style="{StaticResource cbNormal}" DisplayMemberPath="Nazwa" SelectedValuePath="Id" SelectedValue="{Binding WybranyTypId}" />
+                <ComboBox Grid.Column="1" Grid.Row="1" ItemsSource="{Binding ListaMarekTowarow}" Style="{StaticResource cbNormal}" DisplayMemberPath="Nazwa" SelectedValuePath="Id" SelectedValue="{Binding WybranaMarkaId}" />
+                <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding NowyTowar.Model}" Style="{StaticResource tbNormal}"/>
+                <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding NowyTowar.Ean}" Style="{StaticResource tbNormal}" />
+                <TextBox Grid.Column="1" Grid.Row="4" TextWrapping="Wrap" AcceptsReturn="True" Text="{Binding NowyTowar.Uwagi}" Style="{StaticResource tbNormal}" Height="100" />
+                <Button Grid.Row="6" Style="{StaticResource btnNormal}" Command="{Binding ZapiszTowarCommand}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Opportunity;component/Model/Images/cancel.png" Style="{StaticResource imgButtonNormal}"/>
+                        <TextBlock Text="Anuluj" Style="{StaticResource txtButtonNormal}"/>
+                    </StackPanel>
+                </Button>
+                <Button Grid.Row="6" Grid.Column="1" Style="{StaticResource btnNormal}" Command="{Binding ZapiszTowarCommand}" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Opportunity;component/Model/Images/disk.png" Style="{StaticResource imgButtonNormal}"/>
+                        <TextBlock Text="Zatwierdź" Style="{StaticResource txtButtonNormal}"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Pliki" IsEnabled="{Binding IsTowarZapisany}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <StackPanel Grid.ColumnSpan="2">
+                    <Button Style="{StaticResource btnSmall}" >
+                        <ie:Interaction.Behaviors>
+                            <local:DodajPlik Field="path_zdjecie" />
+                        </ie:Interaction.Behaviors>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Opportunity;component/Model/Images/add.png" Style="{StaticResource imgButtonSmall}"/>
+                            <TextBlock Text="Zdjęcie" Style="{StaticResource txtButtonSmall }"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Style="{StaticResource btnSmall}" >
+                        <ie:Interaction.Behaviors>
+                            <local:DodajPlik Field="path_gwarancja" />
+                        </ie:Interaction.Behaviors>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Opportunity;component/Model/Images/add.png" Style="{StaticResource imgButtonSmall}"/>
+                            <TextBlock Text="Gwarancja" Style="{StaticResource txtButtonSmall}"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+                <Button Grid.Row="1" Style="{StaticResource btnNormal}" >
+                    <ie:Interaction.Behaviors>
+                        <local:ZamknijOkno />
+                    </ie:Interaction.Behaviors>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Opportunity;component/Model/Images/cancel.png" Style="{StaticResource imgButtonNormal}"/>
+                        <TextBlock Text="Anuluj" Style="{StaticResource txtButtonNormal}"/>
+                    </StackPanel>
+                </Button>
+                <Button Grid.Row="1" Grid.Column="1" Style="{StaticResource btnNormal}" Command="{Binding ZapiszTowarCommand}" >
+                    <ie:Interaction.Triggers>
+                        <ie:EventTrigger EventName="Click">
+                            <i:ChangePropertyAction TargetObject="{Binding ElementName=tabTowar}" PropertyName="SelectedIndex" Value="2" />
+                        </ie:EventTrigger>
+                    </ie:Interaction.Triggers>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Opportunity;component/Model/Images/arrow_right.png" Style="{StaticResource imgButtonNormal}"/>
+                        <TextBlock Text="Dalej" Style="{StaticResource txtButtonNormal}"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
+            
+        </TabItem>
+        <TabItem Header="Przyjecie" IsEnabled="{Binding IsTowarZapisany}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Ilość" Grid.Row="0" Style="{StaticResource txtNormal}" Visibility="{Binding Premium, Converter={StaticResource BoolOppositeToVisibilityConverter}}"/>
+                <TextBlock Text="Data" Grid.Row="1" Style="{StaticResource txtNormal}" />
+                <TextBlock Text="Numer faktury" Grid.Row="2" Style="{StaticResource txtNormal}"  />
+                <TextBlock Text="Uwagi" Grid.Row="3" Style="{StaticResource txtNormal}" />
+                <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding NowePrzyjecie.Ilosc}" Style="{StaticResource tbNormal}" Visibility="{Binding Premium, Converter={StaticResource BoolOppositeToVisibilityConverter}}"/>
+                <DatePicker Grid.Column="1" Grid.Row="1" SelectedDate="{Binding NowePrzyjecie.DataPrzyjecia}" Style="{StaticResource dpNormal}"/>
+                <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding NowePrzyjecie.NumerFaktury}" Style="{StaticResource tbNormal}"/>
+                <TextBox Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" AcceptsReturn="True" Text="{Binding NowePrzyjecie.Uwagi}" Style="{StaticResource tbNormal}" Height="100" />
+                <Button Grid.Row="5" Style="{StaticResource btnNormal}" >
+                    <ie:Interaction.Behaviors>
+                        <local:ZamknijOkno />
+                    </ie:Interaction.Behaviors>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Opportunity;component/Model/Images/cancel.png" Style="{StaticResource imgButtonNormal}"/>
+                        <TextBlock Text="Anuluj" Style="{StaticResource txtButtonNormal}"/>
+                    </StackPanel>
+                </Button>
+                <Button Grid.Row="5" Grid.Column="1" Style="{StaticResource btnNormal}" Command="{Binding DodajPrzyjecieCommand}" IsEnabled="{Binding IsTowarDoPrzyjecia}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Opportunity;component/Model/Images/disk.png" Style="{StaticResource imgButtonNormal}"/>
+                        <TextBlock Text="Zatwierdź" Style="{StaticResource txtButtonNormal}"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>

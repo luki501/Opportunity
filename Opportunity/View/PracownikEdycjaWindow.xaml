@@ -1,0 +1,169 @@
+﻿<Window x:Class="Opportunity.View.PracownikEdycjaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Opportunity.View"
+        mc:Ignorable="d"
+        xmlns:ie="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactions"
+        DataContext="{Binding Source={StaticResource Locator}, Path=PracownikEdycja}"
+        Title="Dodaj pracownika" Height="400" Width="400">
+    <Window.Resources>
+        <local:MultiBindingConverter x:Key="MultiBindingConverter" />
+        <local:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <local:BoolOppositeToVisibilityConverter x:Key="BoolOppositeToVisibilityConverter" />
+        <Style x:Key="tbNormal" TargetType="TextBox">
+            <Setter Property="Margin" Value="3" />
+        </Style>
+        <Style x:Key="txtNormal" TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+        <Style x:Key="btnNormal" TargetType="Button">
+            <Setter Property="MinWidth" Value="80" />
+            <Setter Property="Margin" Value="10" />
+        </Style>
+        <Style x:Key="chbNormal" TargetType="CheckBox" >
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="3" />
+        </Style>
+        <Style x:Key="dpNormal" TargetType="DatePicker" >
+            <Setter Property="Height" Value="20" />
+            <Setter Property="Margin" Value="3" />
+            <Setter Property="FontSize" Value="10" />
+        </Style>
+        <Style x:Key="cbNormal" TargetType="ComboBox" >
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="3" />
+            <Setter Property="Height" Value="24" />
+            <Setter Property="Background" Value="#cebbad" />
+        </Style>
+        <Style x:Key="imgButtonNormal" TargetType="Image">
+            <Setter Property="Width" Value="20" />
+            <Setter Property="Height" Value="20" />
+            <Setter Property="Margin" Value="3" />
+        </Style>
+        <Style x:Key="txtButtonNormal" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="2" />
+        </Style>
+    </Window.Resources>
+    <ie:Interaction.Behaviors>
+        <local:ZamykanieOkna />
+    </ie:Interaction.Behaviors>
+    <TabControl x:Name="tabPracownik">
+        <TabControl.Style>
+            <Style TargetType="TabControl">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding PracownikZapisany}" Value="True" >
+                        <Setter Property="SelectedIndex" Value="1" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </TabControl.Style>
+        <TabItem Header="Dane" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Nazwa" Grid.Row="0" Style="{StaticResource txtNormal}"  />
+                <TextBlock Text="Nazwisko" Grid.Row="1" Style="{StaticResource txtNormal}"  />
+                <TextBlock Text="Imię" Grid.Row="2" Style="{StaticResource txtNormal}"  />
+                <TextBlock Text="Data urodzenia" Grid.Row="3" Style="{StaticResource txtNormal}" />
+                <TextBlock Text="Uwagi" Grid.Row="4" Style="{StaticResource txtNormal}" />
+                <TextBox x:Name="tbNumer" Grid.Column="1" Grid.Row="0" Text="{Binding NowyPracownik.Numer}" Style="{StaticResource tbNormal}"/>
+                <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding NowyPracownik.Nazwisko}" Style="{StaticResource tbNormal}"/>
+                <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding NowyPracownik.Imie}" Style="{StaticResource tbNormal}"/>
+                <DatePicker Grid.Column="1" Grid.Row="3" SelectedDate="{Binding NowyPracownik.DataUrodzenia}" Style="{StaticResource dpNormal}" />
+                <TextBox Grid.Column="1" Grid.Row="4" TextWrapping="Wrap" AcceptsReturn="True" Text="{Binding NowyPracownik.Uwagi}" Style="{StaticResource tbNormal}" Height="100" />
+                <CheckBox x:Name="cbBrygadzista" Grid.Column="0" Grid.Row="5" Content="Brygadzista" IsChecked="{Binding NowyPracownik.Brygadzista}" Style="{StaticResource chbNormal}" />
+                <!--<StackPanel Grid.Column="1" Grid.Row="5" Visibility="{Binding ElementName=cbBrygadzista, Path=IsChecked, Converter={StaticResource BoolToVisibilityConverter}}">
+                    <TextBlock Text="Hasło: " Style="{StaticResource txtNormal}"/>
+                    <PasswordBox Name="NetworkPassword" local:PasswordBoxAssistant.BindPassword="True" local:PasswordBoxAssistant.BoundPassword="{Binding Path=Haslo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <PasswordBox Name="NetworkPassword2" local:PasswordBoxAssistant.BindPassword="True" local:PasswordBoxAssistant.BoundPassword="{Binding Path=Haslo2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                </StackPanel>-->
+                <Button Grid.Row="6" Style="{StaticResource btnNormal}"  HorizontalAlignment="Left" >
+                    <ie:Interaction.Behaviors>
+                        <local:ZamknijOkno />
+                    </ie:Interaction.Behaviors>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Opportunity;component/Model/Images/cancel.png" Style="{StaticResource imgButtonNormal}"/>
+                        <TextBlock Text="Anuluj" Style="{StaticResource txtButtonNormal}"/>
+                    </StackPanel>
+                </Button>
+                <Button Grid.Row="6" Grid.Column="1" Style="{StaticResource btnNormal}" HorizontalAlignment="Right" Command="{Binding ZapiszPracownikaCommand}" >
+                    <ie:Interaction.Behaviors>
+                        <local:PasswordEdycjaOpen NowyUzytkownik="True" />
+                    </ie:Interaction.Behaviors>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Opportunity;component/Model/Images/disk.png" Style="{StaticResource imgButtonNormal}"/>
+                        <TextBlock Text="Zatwierdź" Style="{StaticResource txtButtonNormal}"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Dokumenty" Visibility="{Binding PracownikZapisany, Converter={StaticResource BoolToVisibilityConverter}}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Text="Typ:" Style="{StaticResource txtNormal}" Grid.ColumnSpan="2" />
+                <ComboBox x:Name="cbNowyDokumentTyp" Grid.Column="2" Grid.Row="0" Style="{StaticResource cbNormal}" ItemsSource="{Binding ListaTypowDokumentow}" SelectedItem="{Binding WybranyTypDokumentu, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                </ComboBox>
+                <TextBlock Grid.Row="1" Text="Numer:" Style="{StaticResource txtNormal}" />
+                <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding NowyDokument.Numer, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" x:Name="txtNowyDokNumer" Style="{StaticResource tbNormal}" />
+                <TextBlock Grid.Row="2" Text="Data wystawienia" Style="{StaticResource txtNormal}" />
+                <DatePicker Grid.Row="2" Grid.Column="2" SelectedDate="{Binding NowyDokument.DataWystawienia, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="dpNowyDokDataWyst" Style="{StaticResource dpNormal}" />
+                <TextBlock Grid.Row="3" Text="Data ważności" Style="{StaticResource txtNormal}" />
+                <DatePicker Grid.Row="3" Grid.Column="2" SelectedDate="{Binding NowyDokument.DataWaznosci, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="dpNowyDokDataWazn" Style="{StaticResource dpNormal}"  />
+                <TextBlock Grid.Row="4" Text="Uwagi" Style="{StaticResource txtNormal}" />
+                <TextBox Grid.Row="4" Grid.Column="2" Text="{Binding NowyDokument.Uwagi, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" x:Name="txtNowyDokUwagi" Style="{StaticResource tbNormal}" Height="50" />
+                <Button Grid.Row="5" Style="{StaticResource btnNormal}" HorizontalAlignment="Left" >
+                    <ie:Interaction.Behaviors>
+                        <local:ZamknijOkno />
+                    </ie:Interaction.Behaviors>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Opportunity;component/Model/Images/cancel.png" Style="{StaticResource imgButtonNormal}"/>
+                        <TextBlock Text="Anuluj" Style="{StaticResource txtButtonNormal}"/>
+                    </StackPanel>
+                </Button>
+                <Button Grid.Column="2" Grid.Row="5" Style="{StaticResource btnNormal}" HorizontalAlignment="Right" 
+                        Command="{Binding DodajDokumentCommand}" IsEnabled="{Binding PracownikZapisany}" >
+                    <ie:Interaction.Triggers>
+                        <ie:EventTrigger EventName="Click">
+                            <i:ChangePropertyAction TargetObject="{Binding ElementName=cbNowyDokumentTyp}" PropertyName="SelectedIndex" Value="-1" />
+                        </ie:EventTrigger>
+                    </ie:Interaction.Triggers>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Opportunity;component/Model/Images/add.png" Style="{StaticResource imgButtonNormal}"/>
+                        <TextBlock Text="Dodaj" Style="{StaticResource txtButtonNormal}" />
+                    </StackPanel>
+                </Button>
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>

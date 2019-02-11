@@ -1,0 +1,577 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OpportunityModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Badania">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="numer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="id_pracownika" Type="Int32" Nullable="false" />
+    <Property Name="data_wydania" Type="DateTime" Precision="0" />
+    <Property Name="data_waznosci" Type="DateTime" Precision="0" />
+    <Property Name="uwagi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="path" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="uzytkownik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="last_update" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="nieaktywne" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK_Badania_Pracownicy" FromRole="Badania" ToRole="Pracownicy" />
+  </EntityType>
+  <EntityType Name="Oswiadczenia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="numer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="id_pracownika" Type="Int32" Nullable="false" />
+    <Property Name="data_wydania" Type="DateTime" Precision="0" />
+    <Property Name="data_waznosci" Type="DateTime" Precision="0" />
+    <Property Name="uwagi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="path" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="uzytkownik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="last_update" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="nieaktywne" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK_Oswiadczenia_Pracownicy" FromRole="Oswiadczenia" ToRole="Pracownicy" />
+  </EntityType>
+  <EntityType Name="Paszporty">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="numer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id_pracownika" Type="Int32" Nullable="false" />
+    <Property Name="data_wydania" Type="DateTime" Precision="0" />
+    <Property Name="data_waznosci" Type="DateTime" Precision="0" />
+    <Property Name="biometryczny" Type="Boolean" Nullable="false" />
+    <Property Name="uwagi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="path" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="uzytkownik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="last_update" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="nieaktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK_Paszporty_Pracownicy" FromRole="Paszporty" ToRole="Pracownicy" />
+  </EntityType>
+  <EntityType Name="Potwierdzenia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_wydania" Type="Int32" Nullable="false" />
+    <Property Name="id_pracownika" Type="Int32" Nullable="false" />
+    <Property Name="data" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="uwagi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="uzytkownik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="last_update" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="nieaktywne" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Wydania" Relationship="Self.FK_Potwierdzenia_Wydania" FromRole="Potwierdzenia" ToRole="Wydania" />
+  </EntityType>
+  <EntityType Name="Pracownicy">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="numer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="imie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="data_urodzenia" Type="DateTime" Precision="0" />
+    <Property Name="brygadzista" Type="Boolean" Nullable="false" />
+    <Property Name="admin" Type="Boolean" Nullable="false" />
+    <Property Name="id_nadrzednego" Type="Int32" />
+    <Property Name="uwagi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="uzytkownik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="last_update" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="nieaktywny" Type="Boolean" Nullable="false" />
+    <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Badania" Relationship="Self.FK_Badania_Pracownicy" FromRole="Pracownicy" ToRole="Badania" />
+    <NavigationProperty Name="Oswiadczenia" Relationship="Self.FK_Oswiadczenia_Pracownicy" FromRole="Pracownicy" ToRole="Oswiadczenia" />
+    <NavigationProperty Name="Paszporty" Relationship="Self.FK_Paszporty_Pracownicy" FromRole="Pracownicy" ToRole="Paszporty" />
+    <NavigationProperty Name="SzkoleniaBHP" Relationship="Self.FK_SzkoleniaBHP_Pracownicy" FromRole="Pracownicy" ToRole="SzkoleniaBHP" />
+    <NavigationProperty Name="Wizy" Relationship="Self.FK_Wizy_Pracownicy" FromRole="Pracownicy" ToRole="Wizy" />
+    <NavigationProperty Name="Wydania" Relationship="Self.FK_Wydania_Pracownicy" FromRole="Pracownicy" ToRole="Wydania" />
+    <NavigationProperty Name="Wydania1" Relationship="Self.FK_Wydania_Pracownicy1" FromRole="Pracownicy" ToRole="Wydania" />
+    <NavigationProperty Name="Zaproszenia" Relationship="Self.FK_Zaproszenia_Pracownicy" FromRole="Pracownicy" ToRole="Zaproszenia" />
+    <NavigationProperty Name="Zezwolenia" Relationship="Self.FK_Zezwolenia_Pracownicy" FromRole="Pracownicy" ToRole="Zezwolenia" />
+    <Property Name="passwordhash" Type="Binary" MaxLength="32" FixedLength="true" />
+    <NavigationProperty Name="Zatrudnienia" Relationship="OpportunityModel.FK_Zatrudnienia_Pracownicy" FromRole="Pracownicy" ToRole="Zatrudnienia" />
+  </EntityType>
+  <EntityType Name="Przyjecia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_towaru" Type="Int32" Nullable="false" />
+    <Property Name="ilosc" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="data" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="numer_faktury" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="path" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="uwagi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="uzytkownik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="last_update" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="nieaktywne" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Towary" Relationship="Self.FK_Przyjecia_Towary" FromRole="Przyjecia" ToRole="Towary" />
+  </EntityType>
+  <EntityType Name="Slownik_typy_towarow">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="uwagi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="uzytkownik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="last_update" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="nieaktywna" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Towary" Relationship="Self.FK_Towary_Slownik_typy_towarow" FromRole="Slownik_typy_towarow" ToRole="Towary" />
+  </EntityType>
+  <EntityType Name="SzkoleniaBHP">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="numer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="id_pracownika" Type="Int32" Nullable="false" />
+    <Property Name="data_wystawienia" Type="DateTime" Precision="0" />
+    <Property Name="data_waznosci" Type="DateTime" Precision="0" />
+    <Property Name="uwagi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="path" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="uzytkownik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="last_update" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="nieaktywne" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK_SzkoleniaBHP_Pracownicy" FromRole="SzkoleniaBHP" ToRole="Pracownicy" />
+  </EntityType>
+  <EntityType Name="Towary">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_typu" Type="Int32" Nullable="false" />
+    <Property Name="nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="marka" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ean" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="path_zdjecie" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="path_gwarancja" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="premium" Type="Boolean" Nullable="false" />
+    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="uwagi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="uzytkownik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="last_update" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="nieaktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Przyjecia" Relationship="Self.FK_Przyjecia_Towary" FromRole="Towary" ToRole="Przyjecia" />
+    <NavigationProperty Name="Slownik_typy_towarow" Relationship="Self.FK_Towary_Slownik_typy_towarow" FromRole="Towary" ToRole="Slownik_typy_towarow" />
+    <NavigationProperty Name="Wycofania" Relationship="Self.FK_Wycofania_Towary" FromRole="Towary" ToRole="Wycofania" />
+    <NavigationProperty Name="Wydania" Relationship="Self.FK_Wydania_Towary" FromRole="Towary" ToRole="Wydania" />
+    <Property Name="id_marki" Type="Int32" />
+    <NavigationProperty Name="Slownik_marki" Relationship="OpportunityModel.FK_Towary_Slownik_marki" FromRole="Towary" ToRole="Slownik_marki" />
+  </EntityType>
+  <EntityType Name="Wizy">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="numer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="id_pracownika" Type="Int32" Nullable="false" />
+    <Property Name="data_wystawienia" Type="DateTime" Precision="0" />
+    <Property Name="data_waznosci" Type="DateTime" Precision="0" />
+    <Property Name="uwagi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="path" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="uzytkownik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="last_update" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="nieaktywna" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK_Wizy_Pracownicy" FromRole="Wizy" ToRole="Pracownicy" />
+  </EntityType>
+  <EntityType Name="Wycofania">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_towaru" Type="Int32" Nullable="false" />
+    <Property Name="ilosc" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="data" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="path" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="uwagi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="uzytkownik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="last_update" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="nieaktywne" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Towary" Relationship="Self.FK_Wycofania_Towary" FromRole="Wycofania" ToRole="Towary" />
+  </EntityType>
+  <EntityType Name="Wydania">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_wydajacego" Type="Int32" />
+    <Property Name="id_przyjmujacego" Type="Int32" />
+    <Property Name="id_towaru" Type="Int32" Nullable="false" />
+    <Property Name="ilosc" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="data" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="uwagi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="uzytkownik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="last_update" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="nieaktywne" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Potwierdzenia" Relationship="Self.FK_Potwierdzenia_Wydania" FromRole="Wydania" ToRole="Potwierdzenia" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK_Wydania_Pracownicy" FromRole="Wydania" ToRole="Pracownicy" />
+    <NavigationProperty Name="Pracownicy1" Relationship="Self.FK_Wydania_Pracownicy1" FromRole="Wydania" ToRole="Pracownicy" />
+    <NavigationProperty Name="Towary" Relationship="Self.FK_Wydania_Towary" FromRole="Wydania" ToRole="Towary" />
+    <Property Name="wykonano" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Zaproszenia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="numer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="id_pracownika" Type="Int32" Nullable="false" />
+    <Property Name="data_wystawienia" Type="DateTime" Precision="0" />
+    <Property Name="data_waznosci_od" Type="DateTime" Precision="0" />
+    <Property Name="data_waznosci" Type="DateTime" Precision="0" />
+    <Property Name="zapraszajacy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="odebrane" Type="Boolean" />
+    <Property Name="oplacone" Type="Boolean" />
+    <Property Name="uwagi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="path" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="uzytkownik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="last_update" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="nieaktywne" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK_Zaproszenia_Pracownicy" FromRole="Zaproszenia" ToRole="Pracownicy" />
+  </EntityType>
+  <EntityType Name="Zezwolenia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="numer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="id_pracownika" Type="Int32" Nullable="false" />
+    <Property Name="data_wystawienia" Type="DateTime" Precision="0" />
+    <Property Name="data_waznosci_od" Type="DateTime" Precision="0" />
+    <Property Name="data_waznosci" Type="DateTime" Precision="0" />
+    <Property Name="uwagi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="path" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="uzytkownik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="last_update" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="nieaktywne" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Pracownicy" Relationship="Self.FK_Zezwolenia_Pracownicy" FromRole="Zezwolenia" ToRole="Pracownicy" />
+  </EntityType>
+  <EntityType Name="v_wydania">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="Data" />
+      <PropertyRef Name="Ilosc" />
+      <PropertyRef Name="id_towaru" />
+      <PropertyRef Name="nazwa_towaru" />
+      <PropertyRef Name="wydajacy" />
+      <PropertyRef Name="przyjmujacy" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="Data" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Ilosc" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="id_towaru" Type="Int32" Nullable="false" />
+    <Property Name="nazwa_towaru" Type="String" MaxLength="101" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id_wydajacego" Type="Int32" />
+    <Property Name="wydajacy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id_przyjmujacego" Type="Int32" />
+    <Property Name="przyjmujacy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="data_potwierdzenia_przyjecia" Type="DateTime" Precision="3" />
+    <Property Name="data_potwierdzenia_wydania" Type="DateTime" Precision="3" />
+  </EntityType>
+  <Association Name="FK_Badania_Pracownicy">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="Badania" Type="Self.Badania" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Badania">
+        <PropertyRef Name="id_pracownika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Oswiadczenia_Pracownicy">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="Oswiadczenia" Type="Self.Oswiadczenia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Oswiadczenia">
+        <PropertyRef Name="id_pracownika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Paszporty_Pracownicy">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="Paszporty" Type="Self.Paszporty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Paszporty">
+        <PropertyRef Name="id_pracownika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Potwierdzenia_Wydania">
+    <End Role="Wydania" Type="Self.Wydania" Multiplicity="1" />
+    <End Role="Potwierdzenia" Type="Self.Potwierdzenia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Wydania">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Potwierdzenia">
+        <PropertyRef Name="id_wydania" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SzkoleniaBHP_Pracownicy">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="SzkoleniaBHP" Type="Self.SzkoleniaBHP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SzkoleniaBHP">
+        <PropertyRef Name="id_pracownika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Wizy_Pracownicy">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="Wizy" Type="Self.Wizy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Wizy">
+        <PropertyRef Name="id_pracownika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Wydania_Pracownicy">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="Wydania" Type="Self.Wydania" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Wydania">
+        <PropertyRef Name="id_przyjmujacego" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Wydania_Pracownicy1">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+    <End Role="Wydania" Type="Self.Wydania" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Wydania">
+        <PropertyRef Name="id_wydajacego" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Zaproszenia_Pracownicy">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="Zaproszenia" Type="Self.Zaproszenia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Zaproszenia">
+        <PropertyRef Name="id_pracownika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Zezwolenia_Pracownicy">
+    <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+    <End Role="Zezwolenia" Type="Self.Zezwolenia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Zezwolenia">
+        <PropertyRef Name="id_pracownika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Przyjecia_Towary">
+    <End Role="Towary" Type="Self.Towary" Multiplicity="1" />
+    <End Role="Przyjecia" Type="Self.Przyjecia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Towary">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Przyjecia">
+        <PropertyRef Name="id_towaru" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Towary_Slownik_typy_towarow">
+    <End Role="Slownik_typy_towarow" Type="Self.Slownik_typy_towarow" Multiplicity="1" />
+    <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Slownik_typy_towarow">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Towary">
+        <PropertyRef Name="id_typu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Wycofania_Towary">
+    <End Role="Towary" Type="Self.Towary" Multiplicity="1" />
+    <End Role="Wycofania" Type="Self.Wycofania" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Towary">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Wycofania">
+        <PropertyRef Name="id_towaru" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Wydania_Towary">
+    <End Role="Towary" Type="Self.Towary" Multiplicity="1" />
+    <End Role="Wydania" Type="Self.Wydania" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Towary">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Wydania">
+        <PropertyRef Name="id_towaru" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="OpportunityEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Badania" EntityType="Self.Badania" />
+    <EntitySet Name="Oswiadczenia" EntityType="Self.Oswiadczenia" />
+    <EntitySet Name="Paszporty" EntityType="Self.Paszporty" />
+    <EntitySet Name="Potwierdzenia" EntityType="Self.Potwierdzenia" />
+    <EntitySet Name="Pracownicy" EntityType="Self.Pracownicy" />
+    <EntitySet Name="Przyjecia" EntityType="Self.Przyjecia" />
+    <EntitySet Name="Slownik_typy_towarow" EntityType="Self.Slownik_typy_towarow" />
+    <EntitySet Name="SzkoleniaBHP" EntityType="Self.SzkoleniaBHP" />
+    <EntitySet Name="Towary" EntityType="Self.Towary" />
+    <EntitySet Name="Wizy" EntityType="Self.Wizy" />
+    <EntitySet Name="Wycofania" EntityType="Self.Wycofania" />
+    <EntitySet Name="Wydania" EntityType="Self.Wydania" />
+    <EntitySet Name="Zaproszenia" EntityType="Self.Zaproszenia" />
+    <EntitySet Name="Zezwolenia" EntityType="Self.Zezwolenia" />
+    <EntitySet Name="v_wydania" EntityType="Self.v_wydania" />
+    <AssociationSet Name="FK_Badania_Pracownicy" Association="Self.FK_Badania_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Badania" EntitySet="Badania" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Oswiadczenia_Pracownicy" Association="Self.FK_Oswiadczenia_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Oswiadczenia" EntitySet="Oswiadczenia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Paszporty_Pracownicy" Association="Self.FK_Paszporty_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Paszporty" EntitySet="Paszporty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Potwierdzenia_Wydania" Association="Self.FK_Potwierdzenia_Wydania">
+      <End Role="Wydania" EntitySet="Wydania" />
+      <End Role="Potwierdzenia" EntitySet="Potwierdzenia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SzkoleniaBHP_Pracownicy" Association="Self.FK_SzkoleniaBHP_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="SzkoleniaBHP" EntitySet="SzkoleniaBHP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Wizy_Pracownicy" Association="Self.FK_Wizy_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Wizy" EntitySet="Wizy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Wydania_Pracownicy" Association="Self.FK_Wydania_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Wydania" EntitySet="Wydania" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Wydania_Pracownicy1" Association="Self.FK_Wydania_Pracownicy1">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Wydania" EntitySet="Wydania" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Zaproszenia_Pracownicy" Association="Self.FK_Zaproszenia_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Zaproszenia" EntitySet="Zaproszenia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Zezwolenia_Pracownicy" Association="Self.FK_Zezwolenia_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Zezwolenia" EntitySet="Zezwolenia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Przyjecia_Towary" Association="Self.FK_Przyjecia_Towary">
+      <End Role="Towary" EntitySet="Towary" />
+      <End Role="Przyjecia" EntitySet="Przyjecia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Towary_Slownik_typy_towarow" Association="Self.FK_Towary_Slownik_typy_towarow">
+      <End Role="Slownik_typy_towarow" EntitySet="Slownik_typy_towarow" />
+      <End Role="Towary" EntitySet="Towary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Wycofania_Towary" Association="Self.FK_Wycofania_Towary">
+      <End Role="Towary" EntitySet="Towary" />
+      <End Role="Wycofania" EntitySet="Wycofania" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Wydania_Towary" Association="Self.FK_Wydania_Towary">
+      <End Role="Towary" EntitySet="Towary" />
+      <End Role="Wydania" EntitySet="Wydania" />
+    </AssociationSet>
+    <EntitySet Name="Slownik_marki" EntityType="OpportunityModel.Slownik_marki" />
+    <AssociationSet Name="FK_Towary_Slownik_marki" Association="OpportunityModel.FK_Towary_Slownik_marki">
+      <End Role="Slownik_marki" EntitySet="Slownik_marki" />
+      <End Role="Towary" EntitySet="Towary" />
+    </AssociationSet>
+    <EntitySet Name="Zatrudnienia" EntityType="OpportunityModel.Zatrudnienia" />
+    <AssociationSet Name="FK_Zatrudnienia_Pracownicy" Association="OpportunityModel.FK_Zatrudnienia_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Zatrudnienia" EntitySet="Zatrudnienia" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Slownik_marki">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nazwa" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="uwagi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="uzytkownik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="last_update" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="nieaktywna" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Towary" Relationship="OpportunityModel.FK_Towary_Slownik_marki" FromRole="Slownik_marki" ToRole="Towary" />
+  </EntityType>
+  <Association Name="FK_Towary_Slownik_marki">
+    <End Type="OpportunityModel.Slownik_marki" Role="Slownik_marki" Multiplicity="0..1" />
+    <End Type="OpportunityModel.Towary" Role="Towary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Slownik_marki">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Towary">
+        <PropertyRef Name="id_marki" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Zatrudnienia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="numer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="id_pracownika" Type="Int32" Nullable="false" />
+    <Property Name="data_waznosci_od" Type="DateTime" Precision="0" />
+    <Property Name="data_waznosci_do" Type="DateTime" Precision="0" />
+    <Property Name="uwagi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="path" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="uzytkownik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="last_update" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="nieaktywne" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Pracownicy" Relationship="OpportunityModel.FK_Zatrudnienia_Pracownicy" FromRole="Zatrudnienia" ToRole="Pracownicy" />
+  </EntityType>
+  <Association Name="FK_Zatrudnienia_Pracownicy">
+    <End Type="OpportunityModel.Pracownicy" Role="Pracownicy" Multiplicity="1" />
+    <End Type="OpportunityModel.Zatrudnienia" Role="Zatrudnienia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Zatrudnienia">
+        <PropertyRef Name="id_pracownika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

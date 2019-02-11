@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C1542141-AF78-4E44-A9AD-E0BC87B671A3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Opportunity</RootNamespace>
+    <AssemblyName>Opportunity</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommonServiceLocator, Version=2.0.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.2.0.4\lib\net45\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight, Version=5.4.1.0, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras, Version=5.4.1.0, Culture=neutral, PublicKeyToken=669f0b5e8f868abf, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.Extras.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.4.1.0, Culture=neutral, PublicKeyToken=5f873c45e98af8a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Gat.Controls.AboutBox, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AboutBox.2.0.0\lib\net45\Gat.Controls.AboutBox.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Model\Database\Badania.cs">
+      <DependentUpon>ModelOpportunity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Database\DbAdapterEF.cs" />
+    <Compile Include="Model\Database\DokumentDB.cs" />
+    <Compile Include="Model\Database\IDbAdapter.cs" />
+    <Compile Include="Model\Database\ModelOpportunity.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelOpportunity.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Database\ModelOpportunity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelOpportunity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Database\ModelOpportunity.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelOpportunity.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Database\OpportunityEntities.cs" />
+    <Compile Include="Model\Database\Oswiadczenia.cs">
+      <DependentUpon>ModelOpportunity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Database\Paszporty.cs">
+      <DependentUpon>ModelOpportunity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Database\Potwierdzenia.cs">
+      <DependentUpon>ModelOpportunity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Database\Pracownicy.cs">
+      <DependentUpon>ModelOpportunity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Database\PracownikAdapterEF.cs" />
+    <Compile Include="Model\Database\Przyjecia.cs">
+      <DependentUpon>ModelOpportunity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Database\Slownik_marki.cs">
+      <DependentUpon>ModelOpportunity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Database\Slownik_typy_towarow.cs">
+      <DependentUpon>ModelOpportunity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Database\SzkoleniaBHP.cs">
+      <DependentUpon>ModelOpportunity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Database\Towary.cs">
+      <DependentUpon>ModelOpportunity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Database\v_wydania.cs">
+      <DependentUpon>ModelOpportunity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Database\Wizy.cs">
+      <DependentUpon>ModelOpportunity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Database\Wycofania.cs">
+      <DependentUpon>ModelOpportunity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Database\Wydania.cs">
+      <DependentUpon>ModelOpportunity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Database\Zaproszenia.cs">
+      <DependentUpon>ModelOpportunity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Database\Zatrudnienia.cs">
+      <DependentUpon>ModelOpportunity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Database\Zezwolenia.cs">
+      <DependentUpon>ModelOpportunity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\IDialogService.cs" />
+    <Compile Include="Model\Obiekty\ADokument.cs" />
+    <Compile Include="Model\Obiekty\Adres.cs" />
+    <Compile Include="Model\Obiekty\Badanie.cs" />
+    <Compile Include="Model\Obiekty\MarkaTowaru.cs" />
+    <Compile Include="Model\Obiekty\Oswiadczenie.cs" />
+    <Compile Include="Model\Obiekty\Paszport.cs" />
+    <Compile Include="Model\Obiekty\Potwierdzenie.cs" />
+    <Compile Include="Model\Obiekty\Pracownik.cs" />
+    <Compile Include="Model\Obiekty\Przyjecie.cs" />
+    <Compile Include="Model\Obiekty\SzkolenieBHP.cs" />
+    <Compile Include="Model\Obiekty\Towar.cs" />
+    <Compile Include="Model\Obiekty\TypTowaru.cs" />
+    <Compile Include="Model\Obiekty\Wiza.cs" />
+    <Compile Include="Model\Obiekty\Wycofanie.cs" />
+    <Compile Include="Model\Obiekty\Wydanie.cs" />
+    <Compile Include="Model\Obiekty\WydanieView.cs" />
+    <Compile Include="Model\Obiekty\Zameldowanie.cs" />
+    <Compile Include="Model\Obiekty\Zatrudnienie.cs" />
+    <Compile Include="Model\Obiekty\Zezwolenie.cs" />
+    <Compile Include="Model\Tools.cs" />
+    <Compile Include="Model\Ustawienia.cs" />
+    <Compile Include="Model\Uzytkownik.cs" />
+    <Compile Include="ViewModel\DokumentManager.cs" />
+    <Compile Include="ViewModel\Filtr.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\Obiekty\ADokumentVM.cs" />
+    <Compile Include="ViewModel\Obiekty\BadanieVM.cs" />
+    <Compile Include="ViewModel\Obiekty\MarkaTowaruVM.cs" />
+    <Compile Include="ViewModel\Obiekty\OswiadczenieVM.cs" />
+    <Compile Include="ViewModel\Obiekty\PaszportVM.cs" />
+    <Compile Include="ViewModel\Obiekty\PotwierdzenieVM.cs" />
+    <Compile Include="ViewModel\Obiekty\PracownikVM.cs" />
+    <Compile Include="ViewModel\Obiekty\PrzyjecieVM.cs" />
+    <Compile Include="ViewModel\Obiekty\SzkolenieVM.cs" />
+    <Compile Include="ViewModel\Obiekty\TowarVM.cs" />
+    <Compile Include="ViewModel\Obiekty\TypTowaruVM.cs" />
+    <Compile Include="ViewModel\Obiekty\WizaVM.cs" />
+    <Compile Include="ViewModel\Obiekty\WycofanieVM.cs" />
+    <Compile Include="ViewModel\Obiekty\WydanieViewVM.cs" />
+    <Compile Include="ViewModel\Obiekty\WydanieVM.cs" />
+    <Compile Include="ViewModel\Obiekty\ZameldowanieVM.cs" />
+    <Compile Include="ViewModel\Obiekty\ZatrudnienieVM.cs" />
+    <Compile Include="ViewModel\Obiekty\ZezwolenieVM.cs" />
+    <Compile Include="ViewModel\PasswordBoxVM.cs" />
+    <Compile Include="ViewModel\PictureVM.cs" />
+    <Compile Include="ViewModel\PracownikEdycjaVM.cs" />
+    <Compile Include="ViewModel\TowarEdycjaVM.cs" />
+    <Compile Include="ViewModel\TowarManager.cs" />
+    <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="View\Behavior.cs" />
+    <Compile Include="View\Converters.cs" />
+    <Compile Include="View\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PasswordBoxAssistant.cs" />
+    <Compile Include="View\PasswordBoxWindow.xaml.cs">
+      <DependentUpon>PasswordBoxWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PracownikEdycjaWindow.xaml.cs">
+      <DependentUpon>PracownikEdycjaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TowarEdycjaWindow.xaml.cs">
+      <DependentUpon>TowarEdycjaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TowarPremiumEdycjaWindow.xaml.cs">
+      <DependentUpon>TowarPremiumEdycjaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View\WindowPicture.xaml.cs">
+      <DependentUpon>WindowPicture.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\PasswordBoxWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PracownikEdycjaWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\TowarEdycjaWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\TowarPremiumEdycjaWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\WindowPicture.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="Model\Database\ModelOpportunity.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelOpportunity.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="config\log4net.config" />
+    <None Include="Model\Database\ModelOpportunity.edmx.diagram">
+      <DependentUpon>ModelOpportunity.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Model\Images\opportunity_background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Model\Images\folder.png" />
+    <Resource Include="Model\Images\info.png" />
+    <Resource Include="Model\Images\accept.png" />
+    <Resource Include="Model\Images\add.png" />
+    <Resource Include="Model\Images\arrow_down.png" />
+    <Resource Include="Model\Images\arrow_left.png" />
+    <Resource Include="Model\Images\arrow_right.png" />
+    <Resource Include="Model\Images\arrow_up.png" />
+    <Resource Include="Model\Images\bin.png" />
+    <Resource Include="Model\Images\cancel.png" />
+    <Resource Include="Model\Images\disk.png" />
+    <Resource Include="Model\Images\exit.png" />
+    <Resource Include="Model\Images\refresh.png" />
+    <Resource Include="Model\Images\search.png" />
+    <Resource Include="config\dokumentacja.txt" />
+    <Content Include="Model\Database\ModelOpportunity.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelOpportunity.edmx</DependentUpon>
+      <LastGenOutput>ModelOpportunity.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\Database\ModelOpportunity.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelOpportunity.edmx</DependentUpon>
+      <LastGenOutput>ModelOpportunity.cs</LastGenOutput>
+    </Content>
+    <Content Include="config\Opportunity_upgrade.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
